@@ -16,7 +16,7 @@ namespace Faith
         private const string ProjectName = "Faith";
         private const string ProjectMainType = "Faith.Faith";
         private const string ProjectAssemblyName = "Faith.dll";
-        private static readonly Color _logColor = Color.FromRgb(0, 255, 0);
+        private static readonly Color _logColor = Colors.Aqua;
         public override PulseFlags PulseFlags => PulseFlags.All;
         public override bool IsAutonomous => true;
         public override bool WantButton => true;

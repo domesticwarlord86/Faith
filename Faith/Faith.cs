@@ -7,17 +7,14 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Globalization;
 using System.IO;
-using System.Linq;
-using System.Reflection;
 using System.Threading;
-using System.Windows;
 using TreeSharp;
 using Action = System.Action;
 
 namespace Faith
 {
     /// <summary>
-    /// Faith Trust entry point.
+    /// Faith BotBase entry point.
     /// </summary>
     public class Faith
     {
@@ -27,44 +24,28 @@ namespace Faith
         /// Dependency injection helper.
         /// </summary>
         private IServiceProvider _services;
-
+        private BotbaseWindow _botbaseWindow;
         private readonly ILogger<Faith> _logger;
 
         /// <summary>
-        /// BotBase settings window.
-        /// </summary>
-        internal Window SettingsWindow;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Faith"/> class.
+        /// Initializes a new instance of the <see cref="Faith"/> class.  Called when BotBase is loaded during RebornBuddy startup.
         /// </summary>
         public Faith()
         {
-            var extraDlls = new DirectoryInfo(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)).GetFiles("*.dll");
-            AppDomain.CurrentDomain.AssemblyResolve += (sender, args) =>
-            {
-                var dll = extraDlls.FirstOrDefault(file => file.Name.Equals(args.Name));
-                return dll == null ? null : Assembly.LoadFrom(dll.FullName);
-            };
-
             Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("en-US");
 
             // Load config files and build dependency injection container
             IConfiguration config = BuildConfiguration();
             _services = BuildServiceProvider(config);
 
-            // HACK: Manually request a few services -- DON'T DO THIS ELSEWHERE
+            // HACK: Manually request a few services -- DON'T DO THIS IN OTHER CLASSES
             // DI normally handles this, but the botbase's top level class is in a weird situation
             _logger = _services.GetService<ILogger<Faith>>();
-            SettingsWindow = _services.GetService<BotbaseWindow>();
-
-            _logger.LogInformation("Faith()");
         }
 
         /// <summary>
         /// Gets the start of the BotBase's behavior tree.
         /// </summary>
-        /// <returns></returns>
         public Composite Root => _root;
 
         /// <summary>
@@ -72,8 +53,20 @@ namespace Faith
         /// </summary>
         public Action OnButtonPress => new Action(() =>
         {
-            _logger.LogInformation("OnButtonPress()");
-            SettingsWindow.Show();
+            if (_botbaseWindow == null)
+            {
+                // Always create a new window; can't be reused after closing
+                _botbaseWindow = _services.GetService<BotbaseWindow>();
+                // Stop tracking window after it closes
+                _botbaseWindow.Closed += (sender, e) => _botbaseWindow = null;
+
+                _botbaseWindow.Show();
+            }
+            else
+            {
+                // Window already open; bring to top
+                _botbaseWindow.Activate();
+            }
         });
 
         public Action OnInitialize => new Action(() =>
@@ -81,11 +74,17 @@ namespace Faith
             _logger.LogInformation("OnInitialize()");
         });
 
+        /// <summary>
+        /// Called when pressing the "Start" button in RebornBuddy.
+        /// </summary>
         public Action OnStart => new Action(() =>
         {
             _logger.LogInformation("OnStart()");
         });
 
+        /// <summary>
+        /// Called when pressing the "Stop" button in RebornBuddy.
+        /// </summary>
         public Action OnStop => new Action(() =>
         {
             _logger.LogInformation("OnStop()");
@@ -116,14 +115,11 @@ namespace Faith
             services.AddLogging(logging =>
             {
                 logging.AddConfiguration(config.GetSection("Logging"));
-                logging.AddFaithLogger(options =>
-                {
-                    config.GetSection("Faith:Logger").Bind(options);
-                });
+                logging.AddFaithLogger(options => config.GetSection("Faith:Logger").Bind(options));
             });
 
-            services.AddScoped<BotbaseWindow>();
-            services.AddScoped<BotbaseWindowViewModel>();
+            services.AddTransient<BotbaseWindow>();
+            services.AddTransient<BotbaseWindowViewModel>();
 
             services.Configure<FaithOptions>(config.GetSection("Faith"));
 
