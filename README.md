@@ -4,7 +4,7 @@
 [![Build Status](https://github.com/TheManta/RB.Faith/workflows/TODO_WORKFLOW_NAME/badge.svg)](https://github.com/TheManta/RB.Faith/actions)
 [![Download Now!](https://img.shields.io/badge/-DOWNLOAD-success)](https://github.com/TheManta/RB.Faith/releases/latest)
 [![Wiki](https://img.shields.io/badge/-WIKI-informational)](https://github.com/TheManta/RB.Faith/wiki)
-[![Discord](https://img.shields.io/discord/543591035847311360.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/vpEv3HJ)
+[![Discord](https://img.shields.io/discord/543591035847311360.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/4Y5HSjP)
 
 
 **RB.Faith** is a [Trusts](https://ffxiv.gamerescape.com/wiki/Trust_System) botbase for [RebornBuddy](https://www.rebornbuddy.com/).  It automatically completes Trust dungeons to help you level classes or Trust NPCs, farm gear drops or tomestones, etc.
