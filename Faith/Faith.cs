@@ -97,7 +97,7 @@ namespace Faith
         private IConfiguration BuildConfiguration()
         {
             IConfigurationBuilder configBuilder = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())  // TODO: Find RebornBuddy Settings Directory
+                .SetBasePath(Path.Combine(Directory.GetCurrentDirectory(), "Settings"))
                 .AddJsonFile("Faith.json", optional: true, reloadOnChange: false)
                 .AddJsonFile("Faith.Development.json", optional: true, reloadOnChange: false);
 
