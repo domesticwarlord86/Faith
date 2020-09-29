@@ -9,13 +9,13 @@ using System.Windows.Threading;
 using TreeSharp;
 using Action = System.Action;
 
-namespace RB.Faith
+namespace Faith
 {
     public class Loader : BotBase
     {
-        private const string ProjectName = "RB.Faith";
-        private const string ProjectMainType = "RB.Faith.Faith";
-        private const string ProjectAssemblyName = "RB.Faith.dll";
+        private const string ProjectName = "Faith";
+        private const string ProjectMainType = "Faith.Faith";
+        private const string ProjectAssemblyName = "Faith.dll";
         private static readonly Color _logColor = Color.FromRgb(0, 255, 0);
         public override PulseFlags PulseFlags => PulseFlags.All;
         public override bool IsAutonomous => true;

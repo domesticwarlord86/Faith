@@ -1,7 +1,6 @@
-﻿using ff14bot.Forms.ugh;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
 
-namespace RB.Faith.Windows
+namespace Faith.Windows
 {
     /// <summary>
     /// ViewModel-style DataContexxt behind <see cref="BotbaseWindow"/>.

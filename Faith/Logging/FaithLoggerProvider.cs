@@ -1,13 +1,8 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Faith.Options;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using RB.Faith.Options;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace RB.Faith.Logging
+namespace Faith.Logging
 {
     [ProviderAlias("Faith")]
     class FaithLoggerProvider : ILoggerProvider

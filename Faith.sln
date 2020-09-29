@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30517.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RB.Faith", "RB.Faith\RB.Faith.csproj", "{B78FD538-5920-44AD-94F2-CFB007A9A96F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Faith", "Faith\Faith.csproj", "{B78FD538-5920-44AD-94F2-CFB007A9A96F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F39AD37D-E26C-486C-8919-6F8B88F755BC}"
 	ProjectSection(SolutionItems) = preProject
@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RB.Faith.Tests", "RB.Faith.Tests\RB.Faith.Tests.csproj", "{039E22AF-E467-465E-B79F-5A1D9F77EE8D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Faith.Tests", "Faith.Tests\Faith.Tests.csproj", "{039E22AF-E467-465E-B79F-5A1D9F77EE8D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

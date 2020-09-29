@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace RB.Faith.Properties
+namespace Faith.Properties
 {
 
 

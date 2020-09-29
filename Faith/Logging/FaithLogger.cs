@@ -1,14 +1,9 @@
-﻿using Buddy.Service.Core;
-using Clio.Utilities;
+﻿using Clio.Utilities;
 using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace RB.Faith.Logging
+namespace Faith.Logging
 {
     class FaithLogger : ILogger
     {

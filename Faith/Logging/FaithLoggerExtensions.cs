@@ -1,13 +1,9 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Faith.Options;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using RB.Faith.Options;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace RB.Faith.Logging
+namespace Faith.Logging
 {
     /// <summary>
     /// Extension methods for FaithLogger classes.

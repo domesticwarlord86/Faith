@@ -1,9 +1,9 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Faith.Logging;
+using Faith.Options;
+using Faith.Windows;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using RB.Faith.Logging;
-using RB.Faith.Options;
-using RB.Faith.Windows;
 using System;
 using System.Globalization;
 using System.IO;
@@ -14,7 +14,7 @@ using System.Windows;
 using TreeSharp;
 using Action = System.Action;
 
-namespace RB.Faith
+namespace Faith
 {
     /// <summary>
     /// Faith Trust entry point.

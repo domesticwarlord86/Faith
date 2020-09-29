@@ -1,13 +1,13 @@
 ﻿
-# [RB.Faith](https://github.com/TheManta/RB.Faith)
+# [Faith](https://github.com/TheManta/Faith)
 
-[![Build Status](https://github.com/TheManta/RB.Faith/workflows/TODO_WORKFLOW_NAME/badge.svg)](https://github.com/TheManta/RB.Faith/actions)
-[![Download Now!](https://img.shields.io/badge/-DOWNLOAD-success)](https://github.com/TheManta/RB.Faith/releases/latest)
-[![Wiki](https://img.shields.io/badge/-WIKI-informational)](https://github.com/TheManta/RB.Faith/wiki)
+[![Build Status](https://github.com/TheManta/Faith/workflows/TODO_WORKFLOW_NAME/badge.svg)](https://github.com/TheManta/Faith/actions)
+[![Download Now!](https://img.shields.io/badge/-DOWNLOAD-success)](https://github.com/TheManta/Faith/releases/latest)
+[![Wiki](https://img.shields.io/badge/-WIKI-informational)](https://github.com/TheManta/Faith/wiki)
 [![Discord](https://img.shields.io/discord/543591035847311360.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/4Y5HSjP)
 
 
-**RB.Faith** is a [Trusts](https://ffxiv.gamerescape.com/wiki/Trust_System) botbase for [RebornBuddy](https://www.rebornbuddy.com/).  It automatically completes Trust dungeons to help you level classes or Trust NPCs, farm gear drops or tomestones, etc.
+**Faith** is a [Trusts](https://ffxiv.gamerescape.com/wiki/Trust_System) botbase for [RebornBuddy](https://www.rebornbuddy.com/).  It automatically completes Trust dungeons to help you level classes or Trust NPCs, farm gear drops or tomestones, etc.
 
 ## Features
 
@@ -36,18 +36,18 @@
 
 ### Setup
 
- 1. Download the [latest version](https://github.com/TheManta/RB.Faith/releases/latest).
+ 1. Download the [latest version](https://github.com/TheManta/Faith/releases/latest).
  2. On the `.zip` file, right click > Properties > Unblock > Apply.
  3. Unzip all contents into `\RebornBuddy\BotBases\` so it looks like this:
 ```
  RebornBuddy
 └── BotBases
-    └── RB.Faith
-        ├── RB.Faith.sln
+    └── Faith
+        ├── Faith.sln
         └── ...
 ```
  4. Start RebornBuddy as normal.
 
 ## Usage
 
-See the [RB.Faith Wiki](https://github.com/TheManta/RB.Faith/wiki) for more details or the [RB.Faith Discord](https://discord.gg/4Y5HSjP) for support.
+See the [Faith Wiki](https://github.com/TheManta/Faith/wiki) for more details or the [Faith Discord](https://discord.gg/4Y5HSjP) for support.
