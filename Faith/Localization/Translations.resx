@@ -132,6 +132,21 @@
     <value>https://github.com/TheManta/Faith</value>
     <comment>Project URL</comment>
   </data>
+  <data name="LOG_BEHAVIOR_ENTERED" xml:space="preserve">
+    <value>LOG_BEHAVIOR_ENTERED</value>
+    <comment>Args: {behaviorName}</comment>
+  </data>
+  <data name="LOG_BEHAVIOR_EXITED_HANDLED" xml:space="preserve">
+    <value>LOG_BEHAVIOR_EXITED_HANDLED</value>
+    <comment>Args: {behaviorName}</comment>
+  </data>
+  <data name="LOG_BEHAVIOR_EXITED_UNHANDLED" xml:space="preserve">
+    <value>LOG_BEHAVIOR_EXITED_UNHANDLED</value>
+    <comment>Args: {behaviorName}</comment>
+  </data>
+  <data name="LOG_BOTBASE_FINISHED" xml:space="preserve">
+    <value>LOG_BOTBASE_FINISHED</value>
+  </data>
   <data name="LOG_BOTBASE_STARTED" xml:space="preserve">
     <value>LOG_BOTBASE_STARTED</value>
   </data>
@@ -140,6 +155,7 @@
   </data>
   <data name="LOG_LOCALIZATION_CHANGED" xml:space="preserve">
     <value>LOG_LOCALIZATION_CHANGED</value>
+    <comment>Args: {cultureCode}</comment>
   </data>
   <data name="LOG_LOCALIZATION_NOT_FOUND" xml:space="preserve">
     <value>Failed to load localization "{cultureCode}": resource file not found.</value>

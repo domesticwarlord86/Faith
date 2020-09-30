@@ -1,11 +1,12 @@
-﻿using Faith.Localization;
+﻿using Faith.Behaviors;
+using Faith.Localization;
 using Faith.Logging;
 using Faith.Options;
 using Faith.Windows;
+using ff14bot;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using System;
 using System.IO;
 using TreeSharp;
@@ -19,24 +20,21 @@ namespace Faith
     public class Faith
     {
         /// <summary>
+        /// Dependency injection helper.
+        /// </summary>
+        private readonly IServiceProvider _services;
+
+        private readonly ILogger<Faith> _logger;
+
+        /// <summary>
         /// Start of the BotBase's behavior tree.
         /// </summary>
         private Composite _root;
 
         /// <summary>
-        /// Dependency injection helper.
-        /// </summary>
-        private readonly IServiceProvider _services;
-
-        /// <summary>
         /// The current active instance of the BotBase Settings window.
         /// </summary>
         private BotbaseWindow _botbaseWindow;
-
-        private readonly ILogger<Faith> _logger;
-
-        private readonly IOptionsMonitor<FaithOptions> _faithOptionsMonitor;
-        private FaithOptions FaithOptions => _faithOptionsMonitor.CurrentValue;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Faith"/> class.  Called when BotBase is loaded during RebornBuddy startup.
@@ -50,7 +48,6 @@ namespace Faith
             // HACK: Manually request a few services -- DON'T DO THIS IN OTHER CLASSES
             // DI normally handles this, but the botbase's top level class is in a weird situation
             _logger = _services.GetService<ILogger<Faith>>();
-            _faithOptionsMonitor = _services.GetService<IOptionsMonitor<FaithOptions>>();
         }
 
         /// <summary>
@@ -91,7 +88,13 @@ namespace Faith
         public Action OnStart => new Action(() =>
         {
             _logger.LogInformation(Translations.LOG_BOTBASE_STARTED);
-            _root = new PrioritySelector();
+
+            var main = _services.GetService<MainBehavior>();
+
+            _root = new PrioritySelector(
+                main.Root,
+                new TreeSharp.Action(x => TreeRoot.Stop(Translations.LOG_BOTBASE_FINISHED))
+            );
         });
 
         /// <summary>
@@ -137,6 +140,19 @@ namespace Faith
             services.Configure<FaithOptions>(config.GetSection("Faith"));
 
             // Behaviors
+            services.AddScoped<MainBehavior>();
+            services.AddScoped<LoadingBehavior>();
+            services.AddScoped<DeathBehavior>();
+            services.AddScoped<BossMechanicsBehavior>();
+            services.AddScoped<CombatBehavior>();
+            services.AddScoped<GearsetBehavior>();
+            services.AddScoped<VendorBehavior>();
+            services.AddScoped<DesynthBehavior>();
+            services.AddScoped<LongTermBuffsBehavior>();
+            services.AddScoped<TrustQueueBehavior>();
+            services.AddScoped<LootingBehavior>();
+            services.AddScoped<DungeonNavigationBehavior>();
+            services.AddScoped<DungeonExitBehavior>();
 
             // Windows
             services.AddTransient<BotbaseWindow>();

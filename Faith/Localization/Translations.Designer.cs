@@ -97,6 +97,42 @@ namespace Faith.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to LOG_BEHAVIOR_ENTERED.
+        /// </summary>
+        public static string LOG_BEHAVIOR_ENTERED {
+            get {
+                return ResourceManager.GetString("LOG_BEHAVIOR_ENTERED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LOG_BEHAVIOR_EXITED_HANDLED.
+        /// </summary>
+        public static string LOG_BEHAVIOR_EXITED_HANDLED {
+            get {
+                return ResourceManager.GetString("LOG_BEHAVIOR_EXITED_HANDLED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LOG_BEHAVIOR_EXITED_UNHANDLED.
+        /// </summary>
+        public static string LOG_BEHAVIOR_EXITED_UNHANDLED {
+            get {
+                return ResourceManager.GetString("LOG_BEHAVIOR_EXITED_UNHANDLED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LOG_BOTBASE_FINISHED.
+        /// </summary>
+        public static string LOG_BOTBASE_FINISHED {
+            get {
+                return ResourceManager.GetString("LOG_BOTBASE_FINISHED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to LOG_BOTBASE_STARTED.
         /// </summary>
         public static string LOG_BOTBASE_STARTED {

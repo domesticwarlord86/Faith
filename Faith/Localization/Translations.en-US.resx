@@ -123,6 +123,21 @@
   <data name="BOTBASE_NAME" xml:space="preserve">
     <value>Faith</value>
   </data>
+  <data name="LOG_BEHAVIOR_ENTERED" xml:space="preserve">
+    <value>Entered {behaviorName}.</value>
+    <comment>Args: {behaviorName}</comment>
+  </data>
+  <data name="LOG_BEHAVIOR_EXITED_HANDLED" xml:space="preserve">
+    <value>Exited {behaviorName} and handled execution.</value>
+    <comment>Args: {behaviorName}</comment>
+  </data>
+  <data name="LOG_BEHAVIOR_EXITED_UNHANDLED" xml:space="preserve">
+    <value>Exited {behaviorName} but passed on execution.</value>
+    <comment>Args: {behaviorName}</comment>
+  </data>
+  <data name="LOG_BOTBASE_FINISHED" xml:space="preserve">
+    <value>BotBase finished successfully.</value>
+  </data>
   <data name="LOG_BOTBASE_STARTED" xml:space="preserve">
     <value>BotBase started.</value>
   </data>

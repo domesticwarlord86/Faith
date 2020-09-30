@@ -5,16 +5,25 @@ using System.Reflection;
 
 namespace Faith.Logging
 {
+    /// <summary>
+    /// Custom logger that writes to RebornBuddy logs + console and terminal.
+    /// </summary>
     class FaithLogger : ILogger
     {
-        private static readonly AssemblyName assembly = Assembly.GetExecutingAssembly().GetName();
+        private static readonly Version _botbaseVersion = Assembly.GetExecutingAssembly().GetName().Version;
         private readonly FaithLoggerProvider _loggerProvider;
-        private readonly string _categoryName;
+        /// <summary>
+        /// Full name of type writing to log (e.g., "Faith.Behaviors.MainBehavior").
+        /// </summary>
+        private readonly string _callerName;
 
-        public FaithLogger([NotNull] FaithLoggerProvider loggerProvider, string categoryName)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FaithLogger"/> class.
+        /// </summary>
+        public FaithLogger([NotNull] FaithLoggerProvider loggerProvider, string callerName)
         {
             _loggerProvider = loggerProvider;
-            _categoryName = categoryName;
+            _callerName = callerName;
         }
 
         public IDisposable BeginScope<TState>(TState state)
@@ -34,7 +43,7 @@ namespace Faith.Logging
                 return;
             }
 
-            var logLine = $"[{assembly.Name}][{assembly.Version}][{logLevel}] {formatter(state, exception)} {(exception != null ? exception.StackTrace : string.Empty)}";
+            var logLine = $"[{_botbaseVersion}][{_callerName}][{logLevel}] {formatter(state, exception)} {(exception != null ? exception.StackTrace : string.Empty)}";
 
             ff14bot.Helpers.Logging.Write(_loggerProvider.FaithOptions.LogColor, logLine);
             Console.WriteLine(logLine);

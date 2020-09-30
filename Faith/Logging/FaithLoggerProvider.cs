@@ -10,6 +10,9 @@ namespace Faith.Logging
         private readonly IOptionsMonitor<FaithOptions> _faithOptionsMonitor;
         public FaithOptions FaithOptions => _faithOptionsMonitor.CurrentValue;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FaithLoggerProvider"/> class.
+        /// </summary>
         public FaithLoggerProvider(IOptionsMonitor<FaithOptions> optionsMonitor)
         {
             _faithOptionsMonitor = optionsMonitor;

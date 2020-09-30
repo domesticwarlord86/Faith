@@ -4,7 +4,7 @@ using Microsoft.Extensions.Logging;
 namespace Faith.Logging
 {
     /// <summary>
-    /// Extension methods for FaithLogger classes.
+    /// Extension methods for <see cref="FaithLogger"/>-related classes.
     /// </summary>
     public static class FaithLoggerExtensions
     {

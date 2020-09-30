@@ -151,6 +151,20 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Behaviors\AbstractBehavior.cs" />
+    <Compile Include="Behaviors\BossMechanicsBehavior.cs" />
+    <Compile Include="Behaviors\CombatBehavior.cs" />
+    <Compile Include="Behaviors\DeathBehavior.cs" />
+    <Compile Include="Behaviors\DesynthBehavior.cs" />
+    <Compile Include="Behaviors\DungeonExitBehavior.cs" />
+    <Compile Include="Behaviors\DungeonNavigationBehavior.cs" />
+    <Compile Include="Behaviors\GearsetBehavior.cs" />
+    <Compile Include="Behaviors\LoadingBehavior.cs" />
+    <Compile Include="Behaviors\LongTermBuffsBehavior.cs" />
+    <Compile Include="Behaviors\LootingBehavior.cs" />
+    <Compile Include="Behaviors\MainBehavior.cs" />
+    <Compile Include="Behaviors\TrustQueueBehavior.cs" />
+    <Compile Include="Behaviors\VendorBehavior.cs" />
     <Compile Include="Loader.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
@@ -163,6 +177,7 @@
     <Compile Include="Logging\FaithLogger.cs" />
     <Compile Include="Logging\FaithLoggerExtensions.cs" />
     <Compile Include="Logging\FaithLoggerProvider.cs" />
+    <Compile Include="Logging\Loggable.cs" />
     <Compile Include="Options\FaithOptions.cs" />
     <Compile Include="Windows\BotbaseWindowViewModel.cs" />
     <Page Include="Windows\BotbaseWindow.xaml">
@@ -190,7 +205,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Behaviors\" />
+    <Analyzer Include="..\packages\Buddy.Analyzers.1.0.6121.40770\analyzers\dotnet\cs\Buddy.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="FodyWeavers.xml" />

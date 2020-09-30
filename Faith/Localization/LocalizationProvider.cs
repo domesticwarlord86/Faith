@@ -1,16 +1,20 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Faith.Logging;
+using Microsoft.Extensions.Logging;
 using System.Globalization;
 using System.Threading;
 
 namespace Faith.Localization
 {
-    internal class LocalizationProvider
+    /// <summary>
+    /// Localization helpers.
+    /// </summary>
+    internal class LocalizationProvider : Loggable
     {
-        private readonly ILogger<LocalizationProvider> _logger;
-
-        public LocalizationProvider(ILogger<LocalizationProvider> logger)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LocalizationProvider"/> class.
+        /// </summary>
+        public LocalizationProvider(ILogger<LocalizationProvider> logger) : base(logger)
         {
-            _logger = logger;
         }
 
         /// <summary>
