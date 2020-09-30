@@ -1,7 +1,5 @@
-﻿using Faith.Options;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using System;
 
 namespace Faith.Logging
 {
@@ -14,12 +12,10 @@ namespace Faith.Logging
         /// Registers <see cref="FaithLoggerProvider"/> with Microsoft's Dependency Injection and Logging extensions.
         /// </summary>
         /// <param name="builder"></param>
-        /// <param name="configure"></param>
         /// <returns></returns>
-        public static ILoggingBuilder AddFaithLogger(this ILoggingBuilder builder, Action<FaithLoggerOptions> configure)
+        public static ILoggingBuilder AddFaithLogger(this ILoggingBuilder builder)
         {
             builder.Services.AddSingleton<ILoggerProvider, FaithLoggerProvider>();
-            builder.Services.Configure(configure);
 
             return builder;
         }

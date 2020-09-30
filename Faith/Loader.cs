@@ -11,22 +11,39 @@ using Action = System.Action;
 
 namespace Faith
 {
+    /// <summary>
+    /// Loads and proxies precompiled Faith BotBase assemblies.
+    /// </summary>
     public class Loader : BotBase
     {
         private const string ProjectName = "Faith";
         private const string ProjectMainType = "Faith.Faith";
         private const string ProjectAssemblyName = "Faith.dll";
         private static readonly Color _logColor = Colors.Aqua;
-        public override PulseFlags PulseFlags => PulseFlags.All;
-        public override bool IsAutonomous => true;
-        public override bool WantButton => true;
-        public override bool RequiresProfile => false;
 
-        public object Faith { get; set; }
+        /// <summary>
+        /// <inheritdoc/>
+        /// </summary>
+        public override PulseFlags PulseFlags => PulseFlags.All;
+
+        /// <summary>
+        /// <inheritdoc/>
+        /// </summary>
+        public override bool IsAutonomous => true;
+
+        /// <summary>
+        /// <inheritdoc/>
+        /// </summary>
+        public override bool WantButton => true;
+
+        /// <summary>
+        /// <inheritdoc/>
+        /// </summary>
+        public override bool RequiresProfile => false;
 
         private static readonly string _projectAssembly = Path.Combine(Environment.CurrentDirectory, $@"BotBases\{ProjectName}\{ProjectAssemblyName}");
         private static readonly string _greyMagicAssembly = Path.Combine(Environment.CurrentDirectory, @"GreyMagic.dll");
-        private static Composite _root;
+        private static Func<Composite> _root;
         private static Action _onButtonPress, _start, _stop;
 
         private static readonly Composite _failsafeRoot = new TreeSharp.Action(c =>
@@ -35,19 +52,37 @@ namespace Faith
             TreeRoot.Stop();
         });
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Loader"/> class.  Created by RebornBuddy during bot startup.
+        /// </summary>
         public Loader()
         {
             Load(Dispatcher.CurrentDispatcher);
         }
 
+        /// <summary>
+        /// <inheritdoc/>
+        /// </summary>
         public override string Name => ProjectName;
 
-        public override Composite Root => _root ?? _failsafeRoot;
+        /// <summary>
+        /// <inheritdoc/>
+        /// </summary>
+        public override Composite Root => _root() ?? _failsafeRoot;
 
+        /// <summary>
+        /// <inheritdoc/>
+        /// </summary>
         public override void OnButtonPress() => _onButtonPress?.Invoke();
 
+        /// <summary>
+        /// <inheritdoc/>
+        /// </summary>
         public override void Start() => _start?.Invoke();
 
+        /// <summary>
+        /// <inheritdoc/>
+        /// </summary>
         public override void Stop() => _stop?.Invoke();
 
         private void Load(Dispatcher dispatcher)
@@ -76,11 +111,10 @@ namespace Faith
                 }
 
                 var type = product.GetType();
-                _root = (Composite)type.GetProperty("Root")?.GetValue(product);
+                _root = (Func<Composite>)type.GetProperty("Root")?.GetValue(product);
                 _start = (Action)type.GetProperty("OnStart")?.GetValue(product);
                 _stop = (Action)type.GetProperty("OnStop")?.GetValue(product);
                 _onButtonPress = (Action)type.GetProperty("OnButtonPress")?.GetValue(product);
-                Faith = product;
 
                 Log($"{ProjectName} loaded.");
             }));

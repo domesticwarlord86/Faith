@@ -123,4 +123,22 @@
   <data name="BOTBASE_NAME" xml:space="preserve">
     <value>Faith</value>
   </data>
+  <data name="LOG_BOTBASE_STARTED" xml:space="preserve">
+    <value>BotBase started.</value>
+  </data>
+  <data name="LOG_BOTBASE_STOPPED" xml:space="preserve">
+    <value>BotBase stopped.</value>
+  </data>
+  <data name="LOG_LOCALIZATION_CHANGED" xml:space="preserve">
+    <value>Localization changed to "{cultureCode}".</value>
+  </data>
+  <data name="LOG_SETTINGS_CLICKED" xml:space="preserve">
+    <value>BotBase Settings button clicked.</value>
+  </data>
+  <data name="LOG_SETTINGS_NEW_WINDOW" xml:space="preserve">
+    <value>Created new BotBase Settings window.</value>
+  </data>
+  <data name="LOG_SETTINGS_WINDOW_TO_TOP" xml:space="preserve">
+    <value>Bringing existing BotBase Settings window to top.</value>
+  </data>
 </root>

@@ -36,7 +36,7 @@ namespace Faith.Logging
 
             var logLine = $"[{assembly.Name}][{assembly.Version}][{logLevel}] {formatter(state, exception)} {(exception != null ? exception.StackTrace : string.Empty)}";
 
-            ff14bot.Helpers.Logging.Write(_loggerProvider.Options.LogColor, logLine);
+            ff14bot.Helpers.Logging.Write(_loggerProvider.FaithOptions.LogColor, logLine);
             Console.WriteLine(logLine);
         }
     }

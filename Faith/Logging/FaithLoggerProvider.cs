@@ -7,12 +7,12 @@ namespace Faith.Logging
     [ProviderAlias("Faith")]
     class FaithLoggerProvider : ILoggerProvider
     {
-        private readonly IOptionsMonitor<FaithLoggerOptions> _optionsMonitor;
-        public FaithLoggerOptions Options => _optionsMonitor.CurrentValue;
+        private readonly IOptionsMonitor<FaithOptions> _faithOptionsMonitor;
+        public FaithOptions FaithOptions => _faithOptionsMonitor.CurrentValue;
 
-        public FaithLoggerProvider(IOptionsMonitor<FaithLoggerOptions> optionsMonitor)
+        public FaithLoggerProvider(IOptionsMonitor<FaithOptions> optionsMonitor)
         {
-            _optionsMonitor = optionsMonitor;
+            _faithOptionsMonitor = optionsMonitor;
         }
 
         public ILogger CreateLogger(string categoryName)
