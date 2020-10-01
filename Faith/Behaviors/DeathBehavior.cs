@@ -37,7 +37,7 @@ namespace Faith.Behaviors
             }
 
             // No opportunity to revive yet?
-            if (!Core.Player?.IsAlive ?? false)
+            if (Core.Player.IsDead || Core.Player.IsDying)
             {
                 StatusBar.Text = Translations.STATUS_DEAD_WAITING;
                 await Coroutine.Sleep(250);

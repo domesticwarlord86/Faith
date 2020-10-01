@@ -156,6 +156,19 @@
   <data name="LOG_BOTBASE_STOPPED" xml:space="preserve">
     <value>LOG_BOTBASE_STOPPED</value>
   </data>
+  <data name="LOG_COMBAT_AVOIDING_AOE" xml:space="preserve">
+    <value>LOG_COMBAT_AVOIDING_AOE</value>
+  </data>
+  <data name="LOG_COMBAT_INTERNAL_CALL" xml:space="preserve">
+    <value>LOG_COMBAT_INTERNAL_CALL</value>
+    <comment>Args: {method}</comment>
+  </data>
+  <data name="LOG_COMBAT_RESTING" xml:space="preserve">
+    <value>LOG_COMBAT_RESTING</value>
+  </data>
+  <data name="LOG_COMBAT_TARGET_DIED" xml:space="preserve">
+    <value>LOG_COMBAT_TARGET_DIED</value>
+  </data>
   <data name="LOG_CUTSCENE_SKIPPING" xml:space="preserve">
     <value>LOG_CUTSCENE_SKIPPING</value>
   </data>
@@ -184,6 +197,10 @@
   </data>
   <data name="LOG_SETTINGS_WINDOW_TO_TOP" xml:space="preserve">
     <value>LOG_SETTINGS_TO_TOP</value>
+  </data>
+  <data name="STATUS_COMBAT_TARGET" xml:space="preserve">
+    <value>STATUS_COMBAT_TARGET</value>
+    <comment>Args: {targetName}</comment>
   </data>
   <data name="STATUS_CUTSCENE_WAIT" xml:space="preserve">
     <value>STATUS_CUTSCENE_WAIT</value>

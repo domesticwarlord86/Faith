@@ -147,6 +147,19 @@
   <data name="LOG_BOTBASE_STOPPED" xml:space="preserve">
     <value>BotBase stopped.</value>
   </data>
+  <data name="LOG_COMBAT_AVOIDING_AOE" xml:space="preserve">
+    <value>Avoiding attack.</value>
+  </data>
+  <data name="LOG_COMBAT_INTERNAL_CALL" xml:space="preserve">
+    <value>Called {method}.</value>
+    <comment>Args: {method}</comment>
+  </data>
+  <data name="LOG_COMBAT_RESTING" xml:space="preserve">
+    <value>Paused combat to rest.</value>
+  </data>
+  <data name="LOG_COMBAT_TARGET_DIED" xml:space="preserve">
+    <value>Combat target died.  Clearing POI.</value>
+  </data>
   <data name="LOG_CUTSCENE_SKIPPING" xml:space="preserve">
     <value>Skipped cutscene.</value>
   </data>
@@ -172,6 +185,10 @@
   </data>
   <data name="LOG_SETTINGS_WINDOW_TO_TOP" xml:space="preserve">
     <value>Brought existing BotBase Settings window to top.</value>
+  </data>
+  <data name="STATUS_COMBAT_TARGET" xml:space="preserve">
+    <value>Combat: {0}</value>
+    <comment>Args: {targetName}</comment>
   </data>
   <data name="STATUS_CUTSCENE_WAIT" xml:space="preserve">
     <value>Waiting for cutscene...</value>

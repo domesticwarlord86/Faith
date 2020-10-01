@@ -160,6 +160,42 @@ namespace Faith.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to LOG_COMBAT_AVOIDING_AOE.
+        /// </summary>
+        public static string LOG_COMBAT_AVOIDING_AOE {
+            get {
+                return ResourceManager.GetString("LOG_COMBAT_AVOIDING_AOE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LOG_COMBAT_INTERNAL_CALL.
+        /// </summary>
+        public static string LOG_COMBAT_INTERNAL_CALL {
+            get {
+                return ResourceManager.GetString("LOG_COMBAT_INTERNAL_CALL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LOG_COMBAT_RESTING.
+        /// </summary>
+        public static string LOG_COMBAT_RESTING {
+            get {
+                return ResourceManager.GetString("LOG_COMBAT_RESTING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LOG_COMBAT_TARGET_DIED.
+        /// </summary>
+        public static string LOG_COMBAT_TARGET_DIED {
+            get {
+                return ResourceManager.GetString("LOG_COMBAT_TARGET_DIED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to LOG_CUTSCENE_SKIPPING.
         /// </summary>
         public static string LOG_CUTSCENE_SKIPPING {
@@ -237,6 +273,15 @@ namespace Faith.Localization {
         public static string LOG_SETTINGS_WINDOW_TO_TOP {
             get {
                 return ResourceManager.GetString("LOG_SETTINGS_WINDOW_TO_TOP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to STATUS_COMBAT_TARGET.
+        /// </summary>
+        public static string STATUS_COMBAT_TARGET {
+            get {
+                return ResourceManager.GetString("STATUS_COMBAT_TARGET", resourceCulture);
             }
         }
         

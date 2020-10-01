@@ -90,6 +90,14 @@ namespace Faith.Behaviors
                 return HANDLED_EXECUTION;
             }
 
+            /*if (Core.Player.PrimaryTargetPtr == IntPtr.Zero)
+            {
+                _logger.LogInformation(Translations.LOG_COMBAT_TARGET_BAD_POINTER);
+                Poi.Clear(Translations.LOG_COMBAT_TARGET_BAD_POINTER);
+
+                return HANDLED_EXECUTION;
+            }*/
+
             // Start combat
             StatusBar.Text = string.Format(Translations.STATUS_COMBAT_TARGET, Poi.Current.Name);
 

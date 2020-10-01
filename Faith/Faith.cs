@@ -4,6 +4,8 @@ using Faith.Logging;
 using Faith.Options;
 using Faith.Windows;
 using ff14bot;
+using ff14bot.Navigation;
+using ff14bot.Pathing.Service_Navigation;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -89,10 +91,13 @@ namespace Faith
         {
             _logger.LogInformation(Translations.LOG_BOTBASE_STARTED);
 
-            var main = _services.GetService<MainBehavior>();
+            // Pathing
+            Navigator.NavigationProvider = new ServiceNavigationProvider();
+            Navigator.PlayerMover = new SlideMover();
 
+            // Behaviors
             _root = new PrioritySelector(
-                main.Root,
+                _services.GetService<MainBehavior>().Root,
                 new TreeSharp.Action(x => TreeRoot.Stop(Translations.LOG_BOTBASE_FINISHED))
             );
         });
