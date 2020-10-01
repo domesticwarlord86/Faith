@@ -69,7 +69,7 @@ namespace Faith.Behaviors
                 }
             }
 
-            return PASSED_EXECUTION;
+            return PASS_EXECUTION;
         }
     }
 }

@@ -20,7 +20,7 @@ namespace Faith.Helpers
         public static uint Id => InstanceDirector.DungeonId;
 
         /// <summary>
-        /// Gets the current instance name in the current game client localization.
+        /// Gets the current instance name based on game's language setting.
         /// </summary>
         public static string Name => WorldManager.CurrentLocalizedZoneName;
 

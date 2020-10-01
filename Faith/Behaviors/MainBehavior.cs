@@ -87,10 +87,13 @@ namespace Faith.Behaviors
                 }
             }
 
+            // TODO: Remove infinite loop hack
+            return HANDLED_EXECUTION;
+
             // Tried every behavior but none would execute
             // Nothing left to do, return execution to parent to eventually stop bot
             _logger.LogTrace(Translations.LOG_BEHAVIOR_LIST_COMPLETE);
-            return PASSED_EXECUTION;
+            return PASS_EXECUTION;
         }
     }
 }

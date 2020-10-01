@@ -170,6 +170,12 @@
     <value>Failed to load localization "{cultureCode}": resource file not found.</value>
     <comment>This "placeholder" is human-readable since it involves localization failing entirely.</comment>
   </data>
+  <data name="LOG_REVIVE_ACCEPTED" xml:space="preserve">
+    <value>LOG_REVIVE_ACCEPTING</value>
+  </data>
+  <data name="LOG_REVIVE_OPENED" xml:space="preserve">
+    <value>LOG_REVIVE_OPENED</value>
+  </data>
   <data name="LOG_SETTINGS_CLICKED" xml:space="preserve">
     <value>LOG_SETTINGS_CLICKED</value>
   </data>
@@ -181,6 +187,9 @@
   </data>
   <data name="STATUS_CUTSCENE_WAIT" xml:space="preserve">
     <value>STATUS_CUTSCENE_WAIT</value>
+  </data>
+  <data name="STATUS_DEAD_WAITING" xml:space="preserve">
+    <value>STATUS_DEAD_WAITING</value>
   </data>
   <data name="STATUS_DUTY_WAIT_COMMENCED" xml:space="preserve">
     <value>STATUS_DUTY_WAIT_COMMENCED</value>

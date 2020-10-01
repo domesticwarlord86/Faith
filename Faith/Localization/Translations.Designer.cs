@@ -196,6 +196,24 @@ namespace Faith.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to LOG_REVIVE_ACCEPTING.
+        /// </summary>
+        public static string LOG_REVIVE_ACCEPTED {
+            get {
+                return ResourceManager.GetString("LOG_REVIVE_ACCEPTED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LOG_REVIVE_OPENED.
+        /// </summary>
+        public static string LOG_REVIVE_OPENED {
+            get {
+                return ResourceManager.GetString("LOG_REVIVE_OPENED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to LOG_SETTINGS_CLICKED.
         /// </summary>
         public static string LOG_SETTINGS_CLICKED {
@@ -228,6 +246,15 @@ namespace Faith.Localization {
         public static string STATUS_CUTSCENE_WAIT {
             get {
                 return ResourceManager.GetString("STATUS_CUTSCENE_WAIT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to STATUS_DEAD_WAITING.
+        /// </summary>
+        public static string STATUS_DEAD_WAITING {
+            get {
+                return ResourceManager.GetString("STATUS_DEAD_WAITING", resourceCulture);
             }
         }
         

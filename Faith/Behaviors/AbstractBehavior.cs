@@ -22,7 +22,7 @@ namespace Faith.Behaviors
         /// <summary>
         /// Return from <see cref="Run"/> if execution should pass to next Behavior.
         /// </summary>
-        protected const bool PASSED_EXECUTION = false;
+        protected const bool PASS_EXECUTION = false;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AbstractBehavior"/> class.

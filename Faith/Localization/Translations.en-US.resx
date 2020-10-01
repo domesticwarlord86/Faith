@@ -136,7 +136,7 @@
     <comment>Args: {behaviorName}</comment>
   </data>
   <data name="LOG_BEHAVIOR_LIST_COMPLETE" xml:space="preserve">
-    <value>Completed all Behaviors; nothing left to do.</value>
+    <value>Completed all Behaviors.  Nothing left to do.</value>
   </data>
   <data name="LOG_BOTBASE_FINISHED" xml:space="preserve">
     <value>BotBase finished successfully.</value>
@@ -148,7 +148,7 @@
     <value>BotBase stopped.</value>
   </data>
   <data name="LOG_CUTSCENE_SKIPPING" xml:space="preserve">
-    <value>Skipping cutscene.</value>
+    <value>Skipped cutscene.</value>
   </data>
   <data name="LOG_DUTY_COMMENCED" xml:space="preserve">
     <value>Duty Commenced: (ID: {dutyId}) {dutyName}</value>
@@ -158,6 +158,12 @@
     <value>Localization changed to "{cultureCode}".</value>
     <comment>Args: {cultureCode}</comment>
   </data>
+  <data name="LOG_REVIVE_ACCEPTED" xml:space="preserve">
+    <value>Accepted revival.</value>
+  </data>
+  <data name="LOG_REVIVE_OPENED" xml:space="preserve">
+    <value>Opened revive notification.</value>
+  </data>
   <data name="LOG_SETTINGS_CLICKED" xml:space="preserve">
     <value>BotBase Settings button clicked.</value>
   </data>
@@ -165,10 +171,13 @@
     <value>Created new BotBase Settings window.</value>
   </data>
   <data name="LOG_SETTINGS_WINDOW_TO_TOP" xml:space="preserve">
-    <value>Bringing existing BotBase Settings window to top.</value>
+    <value>Brought existing BotBase Settings window to top.</value>
   </data>
   <data name="STATUS_CUTSCENE_WAIT" xml:space="preserve">
     <value>Waiting for cutscene...</value>
+  </data>
+  <data name="STATUS_DEAD_WAITING" xml:space="preserve">
+    <value>Dead; waiting for revival opportunity....</value>
   </data>
   <data name="STATUS_DUTY_WAIT_COMMENCED" xml:space="preserve">
     <value>Waiting for duty to commence...</value>
