@@ -17,6 +17,7 @@ namespace Faith.Behaviors
 
         public override Task<bool> Run()
         {
+            //instanceDirector.GetTodoArgs() // determine dungeon progress?
             return Task.FromResult(false);
         }
     }

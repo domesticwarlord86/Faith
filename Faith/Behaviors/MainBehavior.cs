@@ -1,4 +1,5 @@
-﻿using Faith.Localization;
+﻿using Faith.Helpers;
+using Faith.Localization;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -65,23 +66,31 @@ namespace Faith.Behaviors
 
         public override async Task<bool> Run()
         {
+            // Try executing each behavior in order, most important first
             foreach (AbstractBehavior behavior in _behaviors)
             {
-                string behaviorName = behavior.GetType().Name;
-                _logger.LogTrace(Translations.LOG_BEHAVIOR_ENTERED, behaviorName);
+                _logger.LogTrace(Translations.LOG_BEHAVIOR_ENTERED, behavior.Name);
+                bool handled = await behavior.Run();
 
-                if (await behavior.Run())
+                StatusBar.Clear();  // Clean up residual status messages
+
+                if (handled)
                 {
-                    _logger.LogTrace(Translations.LOG_BEHAVIOR_EXITED_HANDLED, behaviorName);
-                    return true;
+                    // Behavior handled the current situation; restart execution from top of behavior list
+                    _logger.LogTrace(Translations.LOG_BEHAVIOR_EXITED_HANDLED, behavior.Name);
+                    return HANDLED_EXECUTION;
                 }
                 else
                 {
-                    _logger.LogTrace(Translations.LOG_BEHAVIOR_EXITED_UNHANDLED, behaviorName);
+                    // Behavior didn't mark this situation as handled; execute next behavior
+                    _logger.LogTrace(Translations.LOG_BEHAVIOR_EXITED_UNHANDLED, behavior.Name);
                 }
             }
 
-            return false;
+            // Tried every behavior but none would execute
+            // Nothing left to do, return execution to parent to eventually stop bot
+            _logger.LogTrace(Translations.LOG_BEHAVIOR_LIST_COMPLETE);
+            return PASSED_EXECUTION;
         }
     }
 }

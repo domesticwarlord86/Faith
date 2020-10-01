@@ -144,6 +144,9 @@
     <value>LOG_BEHAVIOR_EXITED_UNHANDLED</value>
     <comment>Args: {behaviorName}</comment>
   </data>
+  <data name="LOG_BEHAVIOR_LIST_COMPLETE" xml:space="preserve">
+    <value>LOG_BEHAVIOR_LIST_COMPLETE</value>
+  </data>
   <data name="LOG_BOTBASE_FINISHED" xml:space="preserve">
     <value>LOG_BOTBASE_FINISHED</value>
   </data>
@@ -152,6 +155,12 @@
   </data>
   <data name="LOG_BOTBASE_STOPPED" xml:space="preserve">
     <value>LOG_BOTBASE_STOPPED</value>
+  </data>
+  <data name="LOG_CUTSCENE_SKIPPING" xml:space="preserve">
+    <value>LOG_CUTSCENE_SKIPPING</value>
+  </data>
+  <data name="LOG_DUTY_COMMENCED" xml:space="preserve">
+    <value>LOG_DUTY_COMMENCED</value>
   </data>
   <data name="LOG_LOCALIZATION_CHANGED" xml:space="preserve">
     <value>LOG_LOCALIZATION_CHANGED</value>
@@ -169,5 +178,14 @@
   </data>
   <data name="LOG_SETTINGS_WINDOW_TO_TOP" xml:space="preserve">
     <value>LOG_SETTINGS_TO_TOP</value>
+  </data>
+  <data name="STATUS_CUTSCENE_WAIT" xml:space="preserve">
+    <value>STATUS_CUTSCENE_WAIT</value>
+  </data>
+  <data name="STATUS_DUTY_WAIT_COMMENCED" xml:space="preserve">
+    <value>STATUS_DUTY_WAIT_COMMENCED</value>
+  </data>
+  <data name="STATUS_LOADING_WAIT" xml:space="preserve">
+    <value>STATUS_LOADING_WAIT</value>
   </data>
 </root>

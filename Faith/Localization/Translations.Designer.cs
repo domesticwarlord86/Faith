@@ -124,6 +124,15 @@ namespace Faith.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to LOG_BEHAVIOR_LIST_COMPLETE.
+        /// </summary>
+        public static string LOG_BEHAVIOR_LIST_COMPLETE {
+            get {
+                return ResourceManager.GetString("LOG_BEHAVIOR_LIST_COMPLETE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to LOG_BOTBASE_FINISHED.
         /// </summary>
         public static string LOG_BOTBASE_FINISHED {
@@ -147,6 +156,24 @@ namespace Faith.Localization {
         public static string LOG_BOTBASE_STOPPED {
             get {
                 return ResourceManager.GetString("LOG_BOTBASE_STOPPED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LOG_CUTSCENE_SKIPPING.
+        /// </summary>
+        public static string LOG_CUTSCENE_SKIPPING {
+            get {
+                return ResourceManager.GetString("LOG_CUTSCENE_SKIPPING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LOG_DUTY_COMMENCED.
+        /// </summary>
+        public static string LOG_DUTY_COMMENCED {
+            get {
+                return ResourceManager.GetString("LOG_DUTY_COMMENCED", resourceCulture);
             }
         }
         
@@ -192,6 +219,33 @@ namespace Faith.Localization {
         public static string LOG_SETTINGS_WINDOW_TO_TOP {
             get {
                 return ResourceManager.GetString("LOG_SETTINGS_WINDOW_TO_TOP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to STATUS_CUTSCENE_WAIT.
+        /// </summary>
+        public static string STATUS_CUTSCENE_WAIT {
+            get {
+                return ResourceManager.GetString("STATUS_CUTSCENE_WAIT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to STATUS_DUTY_WAIT_COMMENCED.
+        /// </summary>
+        public static string STATUS_DUTY_WAIT_COMMENCED {
+            get {
+                return ResourceManager.GetString("STATUS_DUTY_WAIT_COMMENCED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to STATUS_LOADING_WAIT.
+        /// </summary>
+        public static string STATUS_LOADING_WAIT {
+            get {
+                return ResourceManager.GetString("STATUS_LOADING_WAIT", resourceCulture);
             }
         }
     }

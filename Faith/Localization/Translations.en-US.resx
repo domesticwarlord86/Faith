@@ -135,6 +135,9 @@
     <value>Exited {behaviorName} but passed on execution.</value>
     <comment>Args: {behaviorName}</comment>
   </data>
+  <data name="LOG_BEHAVIOR_LIST_COMPLETE" xml:space="preserve">
+    <value>Completed all Behaviors; nothing left to do.</value>
+  </data>
   <data name="LOG_BOTBASE_FINISHED" xml:space="preserve">
     <value>BotBase finished successfully.</value>
   </data>
@@ -144,8 +147,16 @@
   <data name="LOG_BOTBASE_STOPPED" xml:space="preserve">
     <value>BotBase stopped.</value>
   </data>
+  <data name="LOG_CUTSCENE_SKIPPING" xml:space="preserve">
+    <value>Skipping cutscene.</value>
+  </data>
+  <data name="LOG_DUTY_COMMENCED" xml:space="preserve">
+    <value>Duty Commenced: (ID: {dutyId}) {dutyName}</value>
+    <comment>Args: {dutyName}, {dutyId}</comment>
+  </data>
   <data name="LOG_LOCALIZATION_CHANGED" xml:space="preserve">
     <value>Localization changed to "{cultureCode}".</value>
+    <comment>Args: {cultureCode}</comment>
   </data>
   <data name="LOG_SETTINGS_CLICKED" xml:space="preserve">
     <value>BotBase Settings button clicked.</value>
@@ -155,5 +166,14 @@
   </data>
   <data name="LOG_SETTINGS_WINDOW_TO_TOP" xml:space="preserve">
     <value>Bringing existing BotBase Settings window to top.</value>
+  </data>
+  <data name="STATUS_CUTSCENE_WAIT" xml:space="preserve">
+    <value>Waiting for cutscene...</value>
+  </data>
+  <data name="STATUS_DUTY_WAIT_COMMENCED" xml:space="preserve">
+    <value>Waiting for duty to commence...</value>
+  </data>
+  <data name="STATUS_LOADING_WAIT" xml:space="preserve">
+    <value>Waiting for loading screen...</value>
   </data>
 </root>

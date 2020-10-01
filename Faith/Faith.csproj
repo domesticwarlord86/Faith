@@ -165,6 +165,8 @@
     <Compile Include="Behaviors\MainBehavior.cs" />
     <Compile Include="Behaviors\TrustQueueBehavior.cs" />
     <Compile Include="Behaviors\VendorBehavior.cs" />
+    <Compile Include="Helpers\CurrentInstance.cs" />
+    <Compile Include="Helpers\StatusBar.cs" />
     <Compile Include="Loader.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
@@ -209,6 +211,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="FodyWeavers.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Dungeons\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

@@ -17,7 +17,7 @@ namespace Faith.Behaviors
 
         public override Task<bool> Run()
         {
-            return Task.FromResult(true);
+            return Task.FromResult(HANDLED_EXECUTION);
         }
     }
 }
