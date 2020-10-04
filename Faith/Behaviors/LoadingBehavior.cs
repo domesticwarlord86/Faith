@@ -15,13 +15,14 @@ namespace Faith.Behaviors
     /// <summary>
     /// Waits for loading screens, cutscenes, dungeon barriers, etc.
     /// </summary>
-    class LoadingBehavior : AbstractBehavior
+    public class LoadingBehavior : AbstractBehavior
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="LoadingBehavior"/> class.
         /// </summary>
         public LoadingBehavior(ILogger<LoadingBehavior> logger) : base(logger) { }
 
+        /// <inheritdoc/>
         public override async Task<bool> Run()
         {
             if (CommonBehaviors.IsLoading)
@@ -62,7 +63,7 @@ namespace Faith.Behaviors
                     StatusBar.Text = Translations.STATUS_DUTY_WAIT_COMMENCED;
                     _logger.LogInformation(Translations.STATUS_DUTY_WAIT_COMMENCED);
 
-                    await Coroutine.Wait(TimeSpan.FromMinutes(1), () => CurrentInstance.IsDutyCommenced);
+                    await Coroutine.Wait(TimeSpan.FromMinutes(2), () => CurrentInstance.IsDutyCommenced);
                     _logger.LogInformation(Translations.LOG_DUTY_COMMENCED, CurrentInstance.Id, CurrentInstance.Name);
 
                     return HANDLED_EXECUTION;
