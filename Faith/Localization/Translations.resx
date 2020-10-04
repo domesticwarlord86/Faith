@@ -175,6 +175,9 @@
   <data name="LOG_DUTY_COMMENCED" xml:space="preserve">
     <value>LOG_DUTY_COMMENCED</value>
   </data>
+  <data name="LOG_GEARSET_EQUIPPED_RECOMMENDED" xml:space="preserve">
+    <value>LOG_GEARSET_EQUIPPED_RECOMMENDED</value>
+  </data>
   <data name="LOG_LOCALIZATION_CHANGED" xml:space="preserve">
     <value>LOG_LOCALIZATION_CHANGED</value>
     <comment>Args: {cultureCode}</comment>
@@ -182,6 +185,9 @@
   <data name="LOG_LOCALIZATION_NOT_FOUND" xml:space="preserve">
     <value>Failed to load localization "{cultureCode}": resource file not found.</value>
     <comment>This "placeholder" is human-readable since it involves localization failing entirely.</comment>
+  </data>
+  <data name="LOG_REPAIR_LOW_DURABILITY" xml:space="preserve">
+    <value>LOG_REPAIR_LOW_DURABILITY</value>
   </data>
   <data name="LOG_REVIVE_ACCEPTED" xml:space="preserve">
     <value>LOG_REVIVE_ACCEPTING</value>

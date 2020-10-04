@@ -214,6 +214,15 @@ namespace Faith.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to LOG_GEARSET_EQUIPPED_RECOMMENDED.
+        /// </summary>
+        public static string LOG_GEARSET_EQUIPPED_RECOMMENDED {
+            get {
+                return ResourceManager.GetString("LOG_GEARSET_EQUIPPED_RECOMMENDED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to LOG_LOCALIZATION_CHANGED.
         /// </summary>
         public static string LOG_LOCALIZATION_CHANGED {
@@ -228,6 +237,15 @@ namespace Faith.Localization {
         public static string LOG_LOCALIZATION_NOT_FOUND {
             get {
                 return ResourceManager.GetString("LOG_LOCALIZATION_NOT_FOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LOG_REPAIR_LOW_DURABILITY.
+        /// </summary>
+        public static string LOG_REPAIR_LOW_DURABILITY {
+            get {
+                return ResourceManager.GetString("LOG_REPAIR_LOW_DURABILITY", resourceCulture);
             }
         }
         

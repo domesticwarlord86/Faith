@@ -50,6 +50,9 @@ namespace Faith
             // HACK: Manually request a few services -- DON'T DO THIS IN OTHER CLASSES
             // DI normally handles this, but the botbase's top level class is in a weird situation
             _logger = _services.GetService<ILogger<Faith>>();
+
+            // Initialize LlamaLibrary for game window access
+            LlamaLibrary.Memory.OffsetManager.Init();
         }
 
         /// <summary>
@@ -151,6 +154,7 @@ namespace Faith
             services.AddScoped<BossMechanicsBehavior>();
             services.AddScoped<CombatBehavior>();
             services.AddScoped<GearsetBehavior>();
+            services.AddScoped<RepairBehavior>();
             services.AddScoped<VendorBehavior>();
             services.AddScoped<DesynthBehavior>();
             services.AddScoped<LongTermBuffsBehavior>();
@@ -158,6 +162,7 @@ namespace Faith
             services.AddScoped<LootingBehavior>();
             services.AddScoped<DungeonNavigationBehavior>();
             services.AddScoped<DungeonExitBehavior>();
+            services.AddScoped<DebugBehavior>();
 
             // Windows
             services.AddTransient<BotbaseWindow>();

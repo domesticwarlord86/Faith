@@ -32,13 +32,15 @@ namespace Faith.Behaviors
             BossMechanicsBehavior bossMechanicsBehavior,
             CombatBehavior combatBehavior,
             GearsetBehavior gearsetBehavior,
+            RepairBehavior repairBehavior,
             VendorBehavior vendorBehavior,
             DesynthBehavior desynthBehavior,
             LongTermBuffsBehavior longTermBuffsBehavior,
             TrustQueueBehavior trustQueueBehavior,
             LootingBehavior lootingBehavior,
             DungeonNavigationBehavior dungeonNavigationBehavior,
-            DungeonExitBehavior dungeonExitBehavior
+            DungeonExitBehavior dungeonExitBehavior,
+            DebugBehavior debugBehavior
         ) : base(logger)
         {
             _behaviors = new List<AbstractBehavior> {
@@ -52,6 +54,8 @@ namespace Faith.Behaviors
 
                 // Non-combat behaviors once out of combat
                 gearsetBehavior,
+                repairBehavior,
+                debugBehavior,  // TODO: Remove debug behavior
                 vendorBehavior,
                 desynthBehavior,
                 longTermBuffsBehavior,

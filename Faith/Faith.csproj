@@ -10,7 +10,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Faith</RootNamespace>
     <AssemblyName>Faith</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
@@ -19,6 +19,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <AllowedReferenceRelatedFileExtensions>.pdb</AllowedReferenceRelatedFileExtensions>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -47,6 +48,10 @@
   <ItemGroup>
     <Reference Include="Costura, Version=4.1.0.0, Culture=neutral, PublicKeyToken=9919ef960d84173d, processorArchitecture=MSIL">
       <HintPath>..\packages\Costura.Fody.4.1.0\lib\net40\Costura.dll</HintPath>
+    </Reference>
+    <Reference Include="LlamaLibrary">
+      <HintPath>includes\LlamaLibrary.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.1\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
@@ -159,10 +164,12 @@
     <Compile Include="Behaviors\DungeonExitBehavior.cs" />
     <Compile Include="Behaviors\DungeonNavigationBehavior.cs" />
     <Compile Include="Behaviors\GearsetBehavior.cs" />
+    <Compile Include="Behaviors\DebugBehavior.cs" />
     <Compile Include="Behaviors\LoadingBehavior.cs" />
     <Compile Include="Behaviors\LongTermBuffsBehavior.cs" />
     <Compile Include="Behaviors\LootingBehavior.cs" />
     <Compile Include="Behaviors\MainBehavior.cs" />
+    <Compile Include="Behaviors\RepairBehavior.cs" />
     <Compile Include="Behaviors\TrustQueueBehavior.cs" />
     <Compile Include="Behaviors\VendorBehavior.cs" />
     <Compile Include="Helpers\CurrentInstance.cs" />

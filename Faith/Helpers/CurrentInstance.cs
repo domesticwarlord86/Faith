@@ -30,7 +30,7 @@ namespace Faith.Helpers
         public static string EnglishName => WorldManager.CurrentZoneName;
 
         /// <summary>
-        /// <see langword="true"/> if in instance at any stage of loading (black screen, barrier, duty commenced, etc).
+        /// <see langword="true"/> if in instance, regardless of stage of loading (black screen, barrier, duty commenced, etc).
         /// </summary>
         public static bool IsInInstance => InstanceDirector != null;
 

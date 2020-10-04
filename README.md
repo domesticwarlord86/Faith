@@ -37,13 +37,14 @@
 ### Setup
 
  1. Download the [latest version](https://github.com/TheManta/Faith/releases/latest).
- 2. On the `.zip` file, right click > Properties > Unblock > Apply.
- 3. Unzip all contents into `\RebornBuddy\BotBases\` so it looks like this:
+ 2. On the `.zip` file, right click > `Properties` > `Unblock` > `Apply`.
+ 3. Unzip all contents into `RebornBuddy\BotBases\` so it looks like this:
 ```
  RebornBuddy
 └── BotBases
     └── Faith
-        ├── Faith.sln
+        ├── Faith.dll
+        ├── Loader.cs
         └── ...
 ```
  4. Start RebornBuddy as normal.

@@ -167,9 +167,15 @@
     <value>Duty Commenced: (ID: {dutyId}) {dutyName}</value>
     <comment>Args: {dutyName}, {dutyId}</comment>
   </data>
+  <data name="LOG_GEARSET_EQUIPPED_RECOMMENDED" xml:space="preserve">
+    <value>Equipped recommended gear.</value>
+  </data>
   <data name="LOG_LOCALIZATION_CHANGED" xml:space="preserve">
     <value>Localization changed to "{cultureCode}".</value>
     <comment>Args: {cultureCode}</comment>
+  </data>
+  <data name="LOG_REPAIR_LOW_DURABILITY" xml:space="preserve">
+    <value>Equipped item has low durability.</value>
   </data>
   <data name="LOG_REVIVE_ACCEPTED" xml:space="preserve">
     <value>Accepted revival.</value>
