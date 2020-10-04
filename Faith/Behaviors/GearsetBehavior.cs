@@ -12,23 +12,24 @@ namespace Faith.Behaviors
     /// <summary>
     /// Equips the best gear available.
     /// </summary>
-    class GearsetBehavior : AbstractBehavior
+    public class GearsetBehavior : AbstractBehavior
     {
         /// <summary>
         /// Timestamp of last Equip Recommended attempt.
         /// </summary>
-        private DateTime lastEquipAttempt = DateTime.MinValue;
+        private DateTime _lastEquipAttempt = DateTime.MinValue;
 
         /// <summary>
         /// How often the Equip Recommended can be run.
         /// </summary>
-        private TimeSpan equipCooldown = TimeSpan.FromMinutes(15);
+        private TimeSpan _equipCooldown = TimeSpan.FromMinutes(15);
 
         /// <summary>
         /// Initializes a new instance of the <see cref="GearsetBehavior"/> class.
         /// </summary>
         public GearsetBehavior(ILogger<GearsetBehavior> logger) : base(logger) { }
 
+        /// <inheritdoc/>
         public override async Task<bool> Run()
         {
             if (ShouldTryEquip())
@@ -46,7 +47,7 @@ namespace Faith.Behaviors
         /// </summary>
         private bool ShouldTryEquip()
         {
-            return !CurrentInstance.IsInInstance && (DateTime.Now - lastEquipAttempt) > equipCooldown;
+            return !CurrentInstance.IsInInstance && (DateTime.Now - _lastEquipAttempt) > _equipCooldown;
         }
 
         /// <summary>
@@ -58,11 +59,11 @@ namespace Faith.Behaviors
             {
                 AgentRecommendEquip.Instance.Toggle();
                 await Coroutine.Wait(500, () => RecommendEquip.Instance.IsOpen);
-
-                RecommendEquip.Instance.Confirm();
-                lastEquipAttempt = DateTime.Now;
-                _logger.LogInformation(Translations.LOG_GEARSET_EQUIPPED_RECOMMENDED);
             }
+
+            RecommendEquip.Instance.Confirm();
+            _lastEquipAttempt = DateTime.Now;
+            _logger.LogInformation(Translations.LOG_GEARSET_EQUIPPED_RECOMMENDED);
         }
     }
 }
