@@ -1,13 +1,12 @@
 ﻿
-# [Faith](https://github.com/TheManta/Faith)
+# [Faith][0]
 
-[![Build Status](https://github.com/TheManta/Faith/workflows/TODO_WORKFLOW_NAME/badge.svg)](https://github.com/TheManta/Faith/actions)
-[![Download Now!](https://img.shields.io/badge/-DOWNLOAD-success)](https://github.com/TheManta/Faith/releases/latest)
-[![Wiki](https://img.shields.io/badge/-WIKI-informational)](https://github.com/TheManta/Faith/wiki)
-[![Discord](https://img.shields.io/discord/543591035847311360.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/4Y5HSjP)
+[![Build Status][1]][2]
+[![Download Now!][3]][4]
+[![Wiki][5]][6]
+[![Discord][7]][8]
 
-
-**Faith** is a [Trusts](https://ffxiv.gamerescape.com/wiki/Trust_System) botbase for [RebornBuddy](https://www.rebornbuddy.com/).  It automatically completes Trust dungeons to help you level classes or Trust NPCs, farm gear drops or tomestones, etc.
+**Faith** is a [Trusts][9] botbase for [RebornBuddy][10].  It automatically completes Trust dungeons to help you level classes or Trust NPCs, farm gear drops or tomestones, etc.
 
 ## Features
 
@@ -29,18 +28,18 @@
 ### Prerequisites
 
  * Trusts unlocked (in Patch 5.3, level 71 combat class + Holminster Switch unlocked)
- * [RebornBuddy](https://www.rebornbuddy.com/) with active license (paid)
- * [LlamaLibrary](https://github.com/nt153133/LlamaLibrary) botbase (free)
- * (Optional) Better combat routine, such as [Magitek](https://discord.gg/rDsFbKr) (free)
- * (Optional) Better pathfinding via [Lisbeth](https://www.siune.io/) with active license (paid)
+ * [RebornBuddy][10] with active license (paid)
+ * [LlamaLibrary][11] botbase (free)
+ * (Optional) Better combat routine, such as [Magitek][12] (free)
+ * (Optional) Better pathfinding via [Lisbeth][13] with active license (paid)
 
 ### Setup
 
- 1. Download the [latest version](https://github.com/TheManta/Faith/releases/latest).
+ 1. Download the [latest version][4].
  2. On the `.zip` file, right click > `Properties` > `Unblock` > `Apply`.
  3. Unzip all contents into `RebornBuddy\BotBases\` so it looks like this:
 ```
- RebornBuddy
+RebornBuddy
 └── BotBases
     └── Faith
         ├── Faith.dll
@@ -51,4 +50,19 @@
 
 ## Usage
 
-See the [Faith Wiki](https://github.com/TheManta/Faith/wiki) for more details or the [Faith Discord](https://discord.gg/4Y5HSjP) for support.
+See the [Faith Wiki][6] for more details or the [Faith Discord][8] for support.
+
+[0]: https://github.com/TheManta/Faith "Faith on GitHub"
+[1]: https://github.com/TheManta/Faith/workflows/TODO_WORKFLOW_NAME/badge.svg
+[2]: https://github.com/TheManta/Faith/actions "Build Server"
+[3]: https://img.shields.io/badge/-DOWNLOAD-success
+[4]: https://github.com/TheManta/Faith/releases/latest "Download"
+[5]: https://img.shields.io/badge/-WIKI-informational
+[6]: https://github.com/TheManta/Faith/wiki "Wiki"
+[7]: https://img.shields.io/discord/543591035847311360.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2
+[8]: https://discord.gg/4Y5HSjP "Faith Discord"
+[9]: https://ffxiv.gamerescape.com/wiki/Trust_System "Trust System"
+[10]: https://www.rebornbuddy.com/ "RebornBuddy"
+[11]: https://github.com/nt153133/LlamaLibrary "LlamaLibrary"
+[12]: https://discord.gg/rDsFbKr "Magitek Discord"
+[13]: https://www.siune.io/ "Lisbeth"
