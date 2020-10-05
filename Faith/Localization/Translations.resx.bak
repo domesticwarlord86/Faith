@@ -137,11 +137,11 @@
     <comment>Args: {behaviorName}</comment>
   </data>
   <data name="LOG_BEHAVIOR_EXITED_HANDLED" xml:space="preserve">
-    <value>LOG_BEHAVIOR_EXITED_HANDLED</value>
+    <value>LOG_BEHAVIOR_EXITED_HANDLED </value>
     <comment>Args: {behaviorName}</comment>
   </data>
   <data name="LOG_BEHAVIOR_EXITED_UNHANDLED" xml:space="preserve">
-    <value>LOG_BEHAVIOR_EXITED_UNHANDLED</value>
+    <value>LOG_BEHAVIOR_EXITED_UNHANDLED </value>
     <comment>Args: {behaviorName}</comment>
   </data>
   <data name="LOG_BEHAVIOR_LIST_COMPLETE" xml:space="preserve">
@@ -186,25 +186,8 @@
     <value>Failed to load localization "{cultureCode}": resource file not found.</value>
     <comment>This "placeholder" is human-readable since it involves localization failing entirely.</comment>
   </data>
-  <data name="LOG_REPAIR_FAILED" xml:space="preserve">
-    <value>LOG_REPAIR_FAILED</value>
-  </data>
-  <data name="LOG_REPAIR_LEVELS" xml:space="preserve">
-    <value>LOG_REPAIR_LEVELS</value>
-    <comment>Args: {itemName}, {equipLevel}, {repairClass}, {classLevel}</comment>
-  </data>
   <data name="LOG_REPAIR_LOW_DURABILITY" xml:space="preserve">
     <value>LOG_REPAIR_LOW_DURABILITY</value>
-  </data>
-  <data name="LOG_REPAIR_MATERIAL_COST" xml:space="preserve">
-    <value>LOG_REPAIR_MATERIAL_COST</value>
-    <comment>Args: {needQty}, {materialName}, {hasEnough}</comment>
-  </data>
-  <data name="LOG_REPAIR_NPC_MENDER" xml:space="preserve">
-    <value>LOG_REPAIR_NPC_MENDER</value>
-  </data>
-  <data name="LOG_REPAIR_SELF" xml:space="preserve">
-    <value>LOG_REPAIR_SELF</value>
   </data>
   <data name="LOG_REVIVE_ACCEPTED" xml:space="preserve">
     <value>LOG_REVIVE_ACCEPTING</value>

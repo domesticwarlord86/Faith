@@ -1,9 +1,11 @@
 ﻿using Buddy.Coroutines;
 using Faith.Helpers;
 using Faith.Localization;
+using Faith.Options;
 using ff14bot;
 using ff14bot.RemoteWindows;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using System.Threading.Tasks;
 
 namespace Faith.Behaviors
@@ -11,25 +13,29 @@ namespace Faith.Behaviors
     /// <summary>
     /// Handles dying (release, accept raise).
     /// </summary>
-    class DeathBehavior : AbstractBehavior
+    public class DeathBehavior : AbstractBehavior
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="AbstractBehavior"/> class.
         /// </summary>
-        public DeathBehavior(ILogger<DeathBehavior> logger) : base(logger) { }
+        public DeathBehavior(
+            ILogger<DeathBehavior> logger,
+            IOptionsMonitor<FaithOptions> faithOptionsMonitor
+        ) : base(logger, faithOptionsMonitor) { }
 
+        /// <inheritdoc/>
         public override async Task<bool> Run()
         {
             // Open and accept revive notification
             if (NotificationRevive.IsOpen)
             {
-                _logger.LogInformation(Translations.LOG_REVIVE_OPENED);
+                Logger.LogInformation(Translations.LOG_REVIVE_OPENED);
                 NotificationRevive.Click();
 
                 await Coroutine.Wait(250, () => SelectYesno.IsOpen);
                 if (SelectYesno.IsOpen)
                 {
-                    _logger.LogInformation(Translations.LOG_REVIVE_ACCEPTED);
+                    Logger.LogInformation(Translations.LOG_REVIVE_ACCEPTED);
                     SelectYesno.ClickYes();
                 }
 

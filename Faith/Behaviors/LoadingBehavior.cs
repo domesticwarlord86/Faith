@@ -1,11 +1,13 @@
 ﻿using Buddy.Coroutines;
 using Faith.Helpers;
 using Faith.Localization;
+using Faith.Options;
 using ff14bot.Behavior;
 using ff14bot.Managers;
 using ff14bot.RemoteAgents;
 using ff14bot.RemoteWindows;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -20,7 +22,10 @@ namespace Faith.Behaviors
         /// <summary>
         /// Initializes a new instance of the <see cref="LoadingBehavior"/> class.
         /// </summary>
-        public LoadingBehavior(ILogger<LoadingBehavior> logger) : base(logger) { }
+        public LoadingBehavior(
+            ILogger<LoadingBehavior> logger,
+            IOptionsMonitor<FaithOptions> faithOptionsMonitor
+        ) : base(logger, faithOptionsMonitor) { }
 
         /// <inheritdoc/>
         public override async Task<bool> Run()
@@ -28,7 +33,7 @@ namespace Faith.Behaviors
             if (CommonBehaviors.IsLoading)
             {
                 StatusBar.Text = Translations.STATUS_LOADING_WAIT;
-                _logger.LogInformation(Translations.STATUS_LOADING_WAIT);
+                Logger.LogInformation(Translations.STATUS_LOADING_WAIT);
 
                 await Coroutine.Wait(Timeout.Infinite, () => !CommonBehaviors.IsLoading);
 
@@ -38,7 +43,7 @@ namespace Faith.Behaviors
             if (QuestLogManager.InCutscene)
             {
                 StatusBar.Text = Translations.STATUS_CUTSCENE_WAIT;
-                _logger.LogInformation(Translations.STATUS_CUTSCENE_WAIT);
+                Logger.LogInformation(Translations.STATUS_CUTSCENE_WAIT);
 
                 var cutscene = AgentCutScene.Instance;
                 if (cutscene != null && cutscene.CanSkip)
@@ -47,7 +52,7 @@ namespace Faith.Behaviors
                     await Coroutine.Wait(500, () => SelectString.IsOpen);
                     if (SelectString.IsOpen)
                     {
-                        _logger.LogInformation(Translations.LOG_CUTSCENE_SKIPPING);
+                        Logger.LogInformation(Translations.LOG_CUTSCENE_SKIPPING);
 
                         SelectString.ClickSlot(0);
                     }
@@ -61,10 +66,10 @@ namespace Faith.Behaviors
                 if (!CurrentInstance.IsDutyCommenced)
                 {
                     StatusBar.Text = Translations.STATUS_DUTY_WAIT_COMMENCED;
-                    _logger.LogInformation(Translations.STATUS_DUTY_WAIT_COMMENCED);
+                    Logger.LogInformation(Translations.STATUS_DUTY_WAIT_COMMENCED);
 
                     await Coroutine.Wait(TimeSpan.FromMinutes(2), () => CurrentInstance.IsDutyCommenced);
-                    _logger.LogInformation(Translations.LOG_DUTY_COMMENCED, CurrentInstance.Id, CurrentInstance.Name);
+                    Logger.LogInformation(Translations.LOG_DUTY_COMMENCED, CurrentInstance.Id, CurrentInstance.Name);
 
                     return HANDLED_EXECUTION;
                 }

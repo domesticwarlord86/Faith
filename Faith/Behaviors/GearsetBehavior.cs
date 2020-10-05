@@ -1,9 +1,11 @@
 ﻿using Buddy.Coroutines;
 using Faith.Helpers;
 using Faith.Localization;
+using Faith.Options;
 using LlamaLibrary.RemoteAgents;
 using LlamaLibrary.RemoteWindows;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using System;
 using System.Threading.Tasks;
 
@@ -27,7 +29,10 @@ namespace Faith.Behaviors
         /// <summary>
         /// Initializes a new instance of the <see cref="GearsetBehavior"/> class.
         /// </summary>
-        public GearsetBehavior(ILogger<GearsetBehavior> logger) : base(logger) { }
+        public GearsetBehavior(
+            ILogger<GearsetBehavior> logger,
+            IOptionsMonitor<FaithOptions> faithOptionsMonitor
+        ) : base(logger, faithOptionsMonitor) { }
 
         /// <inheritdoc/>
         public override async Task<bool> Run()
@@ -63,7 +68,7 @@ namespace Faith.Behaviors
 
             RecommendEquip.Instance.Confirm();
             _lastEquipAttempt = DateTime.Now;
-            _logger.LogInformation(Translations.LOG_GEARSET_EQUIPPED_RECOMMENDED);
+            Logger.LogInformation(Translations.LOG_GEARSET_EQUIPPED_RECOMMENDED);
         }
     }
 }

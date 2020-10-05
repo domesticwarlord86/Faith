@@ -1,11 +1,13 @@
 ﻿using Faith.Helpers;
 using Faith.Localization;
+using Faith.Options;
 using ff14bot;
 using ff14bot.Behavior;
 using ff14bot.Helpers;
 using ff14bot.Managers;
 using ff14bot.Objects;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using System.Threading.Tasks;
 using TreeSharp;
 
@@ -14,7 +16,7 @@ namespace Faith.Behaviors
     /// <summary>
     /// Defers general combat situations to the active combat routine.
     /// </summary>
-    class CombatBehavior : AbstractBehavior
+    public class CombatBehavior : AbstractBehavior
     {
         private readonly object context = new object();
 
@@ -29,7 +31,10 @@ namespace Faith.Behaviors
         /// <summary>
         /// Initializes a new instance of the <see cref="CombatBehavior"/> class.
         /// </summary>
-        public CombatBehavior(ILogger<CombatBehavior> logger) : base(logger)
+        public CombatBehavior(
+            ILogger<CombatBehavior> logger,
+            IOptionsMonitor<FaithOptions> faithOptionsMonitor
+        ) : base(logger, faithOptionsMonitor)
         {
             _rest = new HookExecutor("Rest", null, RoutineManager.Current.RestBehavior ?? new ActionAlwaysFail());
             _heal = new HookExecutor("Heal", null, RoutineManager.Current.HealBehavior ?? new ActionAlwaysFail());
@@ -40,12 +45,13 @@ namespace Faith.Behaviors
             _combat = new HookExecutor("Combat", null, RoutineManager.Current.CombatBehavior ?? new ActionAlwaysFail());
         }
 
+        /// <inheritdoc/>
         public override async Task<bool> Run()
         {
             // Always dodge above all else
             if (AvoidanceManager.IsRunningOutOfAvoid)
             {
-                _logger.LogTrace(Translations.LOG_COMBAT_AVOIDING_AOE);
+                Logger.LogTrace(Translations.LOG_COMBAT_AVOIDING_AOE);
 
                 return HANDLED_EXECUTION;
             }
@@ -55,7 +61,7 @@ namespace Faith.Behaviors
             {
                 if (await Rest())
                 {
-                    _logger.LogInformation(Translations.LOG_COMBAT_RESTING);
+                    Logger.LogInformation(Translations.LOG_COMBAT_RESTING);
                     await CommonTasks.StopMoving();
                     await Heal();
 
@@ -84,7 +90,7 @@ namespace Faith.Behaviors
 
             if (Poi.Current?.BattleCharacter == null || !Poi.Current.BattleCharacter.IsValid || !Poi.Current.BattleCharacter.IsAlive)
             {
-                _logger.LogInformation(Translations.LOG_COMBAT_TARGET_DIED);
+                Logger.LogInformation(Translations.LOG_COMBAT_TARGET_DIED);
                 Poi.Clear(Translations.LOG_COMBAT_TARGET_DIED);
 
                 return HANDLED_EXECUTION;
@@ -134,49 +140,49 @@ namespace Faith.Behaviors
 
         private async Task<bool> Rest()
         {
-            _logger.LogTrace(Translations.LOG_COMBAT_INTERNAL_CALL, nameof(Rest));
+            Logger.LogTrace(Translations.LOG_COMBAT_INTERNAL_CALL, nameof(Rest));
 
             return await _rest.ExecuteCoroutine(context);
         }
 
         private async Task<bool> Heal()
         {
-            _logger.LogTrace(Translations.LOG_COMBAT_INTERNAL_CALL, nameof(Heal));
+            Logger.LogTrace(Translations.LOG_COMBAT_INTERNAL_CALL, nameof(Heal));
 
             return await _heal.ExecuteCoroutine(context);
         }
 
         private async Task<bool> PreCombatBuff()
         {
-            _logger.LogTrace(Translations.LOG_COMBAT_INTERNAL_CALL, nameof(PreCombatBuff));
+            Logger.LogTrace(Translations.LOG_COMBAT_INTERNAL_CALL, nameof(PreCombatBuff));
 
             return await _preCombatBuff.ExecuteCoroutine(context);
         }
 
         private async Task<bool> PreCombatLogic()
         {
-            _logger.LogTrace(Translations.LOG_COMBAT_INTERNAL_CALL, nameof(PreCombatLogic));
+            Logger.LogTrace(Translations.LOG_COMBAT_INTERNAL_CALL, nameof(PreCombatLogic));
 
             return await _preCombatLogic.ExecuteCoroutine(context);
         }
 
         private async Task<bool> Pull()
         {
-            _logger.LogTrace(Translations.LOG_COMBAT_INTERNAL_CALL, nameof(Pull));
+            Logger.LogTrace(Translations.LOG_COMBAT_INTERNAL_CALL, nameof(Pull));
 
             return await _pull.ExecuteCoroutine(context);
         }
 
         private async Task<bool> CombatBuff()
         {
-            _logger.LogTrace(Translations.LOG_COMBAT_INTERNAL_CALL, nameof(CombatBuff));
+            Logger.LogTrace(Translations.LOG_COMBAT_INTERNAL_CALL, nameof(CombatBuff));
 
             return await _combatBuff.ExecuteCoroutine(context);
         }
 
         private async Task<bool> Combat()
         {
-            _logger.LogTrace(Translations.LOG_COMBAT_INTERNAL_CALL, nameof(Combat));
+            Logger.LogTrace(Translations.LOG_COMBAT_INTERNAL_CALL, nameof(Combat));
 
             return await _combat.ExecuteCoroutine(context);
         }

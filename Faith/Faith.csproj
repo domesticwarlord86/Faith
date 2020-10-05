@@ -172,6 +172,9 @@
     <Compile Include="Behaviors\RepairBehavior.cs" />
     <Compile Include="Behaviors\TrustQueueBehavior.cs" />
     <Compile Include="Behaviors\VendorBehavior.cs" />
+    <Compile Include="BotBase\IProxiedBotBase.cs" />
+    <Compile Include="Factories\IFactory.cs" />
+    <Compile Include="Factories\MainBehaviorFactory.cs" />
     <Compile Include="Helpers\CurrentInstance.cs" />
     <Compile Include="Helpers\StatusBar.cs" />
     <Compile Include="Loader.cs">
@@ -186,16 +189,19 @@
     <Compile Include="Logging\FaithLogger.cs" />
     <Compile Include="Logging\FaithLoggerExtensions.cs" />
     <Compile Include="Logging\FaithLoggerProvider.cs" />
-    <Compile Include="Logging\Loggable.cs" />
+    <Compile Include="Logging\AbstractLoggable.cs" />
+    <Compile Include="Options\AbstractLoggableWithOptions.cs" />
     <Compile Include="Options\FaithOptions.cs" />
-    <Compile Include="Windows\BotbaseWindowViewModel.cs" />
-    <Page Include="Windows\BotbaseWindow.xaml">
+    <Compile Include="Startup.cs" />
+    <Compile Include="Factories\BotBaseWindowFactory.cs" />
+    <Compile Include="Windows\BotBaseWindowViewModel.cs" />
+    <Page Include="Windows\BotBaseWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="Faith.cs" />
-    <Compile Include="Windows\BotbaseWindow.xaml.cs">
-      <DependentUpon>BotbaseWindow.xaml</DependentUpon>
+    <Compile Include="BotBase\FaithBotBase.cs" />
+    <Compile Include="Windows\BotBaseWindow.xaml.cs">
+      <DependentUpon>BotBaseWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -203,7 +209,7 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <EmbeddedResource Include="Localization\Translations.en-US.resx" />
+    <EmbeddedResource Include="Localization\Translations.en.resx" />
     <EmbeddedResource Include="Localization\Translations.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Translations.Designer.cs</LastGenOutput>
@@ -223,6 +229,7 @@
     <Folder Include="Dungeons\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="AL1073Workaround.targets" />
   <PropertyGroup>
     <PostBuildEvent>IF DEFINED %25FAITH_PATH%25 (
     ECHO FAITH_PATH=%25FAITH_PATH%25

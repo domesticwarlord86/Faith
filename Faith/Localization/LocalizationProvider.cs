@@ -1,20 +1,26 @@
 ﻿using Faith.Logging;
+using Faith.Options;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using System.Globalization;
-using System.Threading;
 
 namespace Faith.Localization
 {
     /// <summary>
     /// Localization helpers.
     /// </summary>
-    internal class LocalizationProvider : Loggable
+    internal class LocalizationProvider : AbstractLoggable
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="LocalizationProvider"/> class.
         /// </summary>
-        public LocalizationProvider(ILogger<LocalizationProvider> logger) : base(logger)
+        public LocalizationProvider(
+            ILogger<LocalizationProvider> logger,
+            IOptionsMonitor<FaithOptions> optionsMonitor
+        ) : base(logger)
         {
+            SetLocalization(optionsMonitor.CurrentValue.Localization);
+            optionsMonitor.OnChange((options) => SetLocalization(options.Localization));
         }
 
         /// <summary>
@@ -25,16 +31,32 @@ namespace Faith.Localization
         /// <param name="cultureCode">Localization to display.</param>
         public void SetLocalization(string cultureCode)
         {
+            CultureInfo culture;
+
             try
             {
-                Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo(cultureCode);
-                Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo(cultureCode);
-                _logger.LogDebug(Translations.LOG_LOCALIZATION_CHANGED, cultureCode);
+                culture = CultureInfo.GetCultureInfo(cultureCode);
             }
             catch (CultureNotFoundException)
             {
-                _logger.LogError(Translations.LOG_LOCALIZATION_NOT_FOUND, cultureCode);
+                Logger.LogError(Translations.LOG_LOCALIZATION_NOT_FOUND, cultureCode);
+                return;
             }
+
+            if (Translations.Culture == culture)
+            {
+                return;
+            }
+
+            CultureInfo.DefaultThreadCurrentCulture = culture;
+            CultureInfo.DefaultThreadCurrentUICulture = culture;
+
+            CultureInfo.CurrentCulture = culture;
+            CultureInfo.CurrentUICulture = culture;
+
+            Translations.Culture = culture;
+
+            Logger.LogInformation(Translations.LOG_LOCALIZATION_CHANGED, cultureCode);
         }
     }
 }

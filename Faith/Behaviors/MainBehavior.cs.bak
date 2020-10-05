@@ -56,7 +56,7 @@ namespace Faith.Behaviors
                 combatBehavior,
 
                 // Non-combat behaviors once out of combat
-                gearsetBehavior,
+//                gearsetBehavior,
                 repairBehavior,
                 debugBehavior,  // TODO: Remove debug behavior
                 vendorBehavior,

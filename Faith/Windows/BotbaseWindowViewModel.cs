@@ -4,15 +4,14 @@ using Microsoft.Extensions.Logging;
 namespace Faith.Windows
 {
     /// <summary>
-    /// ViewModel-style DataContexxt behind <see cref="BotbaseWindow"/>.
+    /// ViewModel-style DataContext behind <see cref="BotBaseWindow"/>.
     /// </summary>
-    public class BotbaseWindowViewModel : Loggable
+    public class BotBaseWindowViewModel : AbstractLoggable
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="BotbaseWindowViewModel"/> class.
+        /// Initializes a new instance of the <see cref="BotBaseWindowViewModel"/> class.
         /// </summary>
-        /// <param name="logger"></param>
-        public BotbaseWindowViewModel(ILogger<BotbaseWindowViewModel> logger) : base(logger)
+        public BotBaseWindowViewModel(ILogger<BotBaseWindowViewModel> logger) : base(logger)
         {
         }
     }

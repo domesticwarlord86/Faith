@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Faith.Options;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using System.Threading.Tasks;
 
 namespace Faith.Behaviors
@@ -6,15 +8,17 @@ namespace Faith.Behaviors
     /// <summary>
     /// Loots nearby treasure chests and rolls for loot.
     /// </summary>
-    class LootingBehavior : AbstractBehavior
+    public class LootingBehavior : AbstractBehavior
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="LootingBehavior"/> class.
         /// </summary>
-        public LootingBehavior(ILogger<LootingBehavior> logger) : base(logger)
-        {
-        }
+        public LootingBehavior(
+            ILogger<LootingBehavior> logger,
+            IOptionsMonitor<FaithOptions> faithOptionsMonitor
+        ) : base(logger, faithOptionsMonitor) { }
 
+        /// <inheritdoc/>
         public override Task<bool> Run()
         {
             return Task.FromResult(false);

@@ -106,7 +106,7 @@ namespace Faith.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LOG_BEHAVIOR_EXITED_HANDLED.
+        ///   Looks up a localized string similar to LOG_BEHAVIOR_EXITED_HANDLED .
         /// </summary>
         public static string LOG_BEHAVIOR_EXITED_HANDLED {
             get {
@@ -115,7 +115,7 @@ namespace Faith.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LOG_BEHAVIOR_EXITED_UNHANDLED.
+        ///   Looks up a localized string similar to LOG_BEHAVIOR_EXITED_UNHANDLED .
         /// </summary>
         public static string LOG_BEHAVIOR_EXITED_UNHANDLED {
             get {
@@ -241,56 +241,11 @@ namespace Faith.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LOG_REPAIR_FAILED.
-        /// </summary>
-        public static string LOG_REPAIR_FAILED {
-            get {
-                return ResourceManager.GetString("LOG_REPAIR_FAILED", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to LOG_REPAIR_LEVELS.
-        /// </summary>
-        public static string LOG_REPAIR_LEVELS {
-            get {
-                return ResourceManager.GetString("LOG_REPAIR_LEVELS", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to LOG_REPAIR_LOW_DURABILITY.
         /// </summary>
         public static string LOG_REPAIR_LOW_DURABILITY {
             get {
                 return ResourceManager.GetString("LOG_REPAIR_LOW_DURABILITY", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to LOG_REPAIR_MATERIAL_COST.
-        /// </summary>
-        public static string LOG_REPAIR_MATERIAL_COST {
-            get {
-                return ResourceManager.GetString("LOG_REPAIR_MATERIAL_COST", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to LOG_REPAIR_NPC_MENDER.
-        /// </summary>
-        public static string LOG_REPAIR_NPC_MENDER {
-            get {
-                return ResourceManager.GetString("LOG_REPAIR_NPC_MENDER", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to LOG_REPAIR_SELF.
-        /// </summary>
-        public static string LOG_REPAIR_SELF {
-            get {
-                return ResourceManager.GetString("LOG_REPAIR_SELF", resourceCulture);
             }
         }
         

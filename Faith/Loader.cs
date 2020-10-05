@@ -1,5 +1,4 @@
 ﻿using ff14bot;
-using ff14bot.AClasses;
 using ff14bot.Behavior;
 using System;
 using System.IO;
@@ -14,31 +13,23 @@ namespace Faith
     /// <summary>
     /// Loads and proxies precompiled Faith BotBase assemblies.
     /// </summary>
-    public class Loader : BotBase
+    public class Loader : ff14bot.AClasses.BotBase
     {
         private const string ProjectName = "Faith";
-        private const string ProjectMainType = "Faith.Faith";
+        private const string ProjectMainType = "Faith.Startup";
         private const string ProjectAssemblyName = "Faith.dll";
         private static readonly Color _logColor = Colors.Aqua;
 
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         public override PulseFlags PulseFlags => PulseFlags.All;
 
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         public override bool IsAutonomous => true;
 
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         public override bool WantButton => true;
 
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         public override bool RequiresProfile => false;
 
         private static readonly string _projectAssembly = Path.Combine(Environment.CurrentDirectory, $@"BotBases\{ProjectName}\{ProjectAssemblyName}");

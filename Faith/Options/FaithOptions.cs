@@ -18,5 +18,10 @@ namespace Faith.Options
         /// See this list of <a href="http://www.codedigest.com/CodeDigest/207-Get-All-Language-Country-Code-List-for-all-Culture-in-C---ASP-Net.aspx">culture codes</a>.
         /// </summary>
         public string Localization { get; set; } = "en-US";
+
+        /// <summary>
+        /// Lowest percent durability allowed before attempting to repair gearset.
+        /// </summary>
+        public float RepairDurabilityThreshold { get; set; } = 10.0f;
     }
 }

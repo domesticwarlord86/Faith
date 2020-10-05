@@ -174,8 +174,25 @@
     <value>Localization changed to "{cultureCode}".</value>
     <comment>Args: {cultureCode}</comment>
   </data>
+  <data name="LOG_REPAIR_FAILED" xml:space="preserve">
+    <value>Couldn't repair equipment.</value>
+  </data>
+  <data name="LOG_REPAIR_LEVELS" xml:space="preserve">
+    <value>{itemName} (Equip Level: {equipLevel}), {repairClass} (Player Level: {classLevel})</value>
+    <comment>Args: {itemName}, {equipLevel}, {repairClass}, {classLevel}</comment>
+  </data>
   <data name="LOG_REPAIR_LOW_DURABILITY" xml:space="preserve">
-    <value>Equipped item has low durability.</value>
+    <value>Equipment has has low durability.</value>
+  </data>
+  <data name="LOG_REPAIR_MATERIAL_COST" xml:space="preserve">
+    <value>Need {needQty}x {materialName}, hasEnough = {hasEnough}</value>
+    <comment>Args: {needQty}, {materialName}, {hasEnough}</comment>
+  </data>
+  <data name="LOG_REPAIR_NPC_MENDER" xml:space="preserve">
+    <value>Can repair via NPC mender.</value>
+  </data>
+  <data name="LOG_REPAIR_SELF" xml:space="preserve">
+    <value>Can repair via self-repair.</value>
   </data>
   <data name="LOG_REVIVE_ACCEPTED" xml:space="preserve">
     <value>Accepted revival.</value>

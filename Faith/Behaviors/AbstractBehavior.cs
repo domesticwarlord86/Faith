@@ -1,5 +1,6 @@
-﻿using Faith.Logging;
+﻿using Faith.Options;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using System.Threading.Tasks;
 
 namespace Faith.Behaviors
@@ -7,7 +8,7 @@ namespace Faith.Behaviors
     /// <summary>
     /// Base class for AI behaviors.
     /// </summary>
-    abstract class AbstractBehavior : Loggable
+    public abstract class AbstractBehavior : AbstractLoggableWithOptions
     {
         /// <summary>
         /// Behavior type name, used in debug logging.
@@ -27,7 +28,10 @@ namespace Faith.Behaviors
         /// <summary>
         /// Initializes a new instance of the <see cref="AbstractBehavior"/> class.
         /// </summary>
-        public AbstractBehavior(ILogger logger) : base(logger)
+        public AbstractBehavior(
+            ILogger logger,
+            IOptionsMonitor<FaithOptions> faithOptionsMonitor
+        ) : base(logger, faithOptionsMonitor)
         {
             Name = GetType().Name;
         }

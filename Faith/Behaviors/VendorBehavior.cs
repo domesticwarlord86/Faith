@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Faith.Options;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using System.Threading.Tasks;
 
 namespace Faith.Behaviors
@@ -6,15 +8,17 @@ namespace Faith.Behaviors
     /// <summary>
     /// Performs transactions with Gil, Tomestones, Grand Company Seals, etc.
     /// </summary>
-    class VendorBehavior : AbstractBehavior
+    public class VendorBehavior : AbstractBehavior
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="VendorBehavior"/> class.
         /// </summary>
-        public VendorBehavior(ILogger<VendorBehavior> logger) : base(logger)
-        {
-        }
+        public VendorBehavior(
+            ILogger<VendorBehavior> logger,
+            IOptionsMonitor<FaithOptions> faithOptionsMonitor
+        ) : base(logger, faithOptionsMonitor) { }
 
+        /// <inheritdoc/>
         public override Task<bool> Run()
         {
             return Task.FromResult(false);
