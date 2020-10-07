@@ -24,67 +24,43 @@ namespace Faith.Behaviors
         /// </summary>
         private const int _repairLevelRange = 10;
 
-        private DateTime _lastRepairAttempt = DateTime.MinValue;
-
-        /// <summary>
-        /// How often repair attempts can be made.
-        /// </summary>
-        private TimeSpan _repairCooldown = TimeSpan.FromMinutes(5);
-
         /// <summary>
         /// Initializes a new instance of the <see cref="RepairBehavior"/> class.
         /// </summary>
         public RepairBehavior(
             ILogger<RepairBehavior> logger,
             IOptionsMonitor<FaithOptions> faithOptionsMonitor
-        ) : base(logger, faithOptionsMonitor) { }
+        ) : base(logger, faithOptionsMonitor)
+        {
+            Cooldown = TimeSpan.FromMinutes(5);
+        }
 
         /// <inheritdoc/>
         public override async Task<bool> Run()
         {
-            // Rate-limit repair scans/attempts
-            if (!ReadyToRepair())
-            {
-                return PASS_EXECUTION;
-            }
+            if (!IsBehaviorReady()) { return PASS_EXECUTION; }
 
             foreach (BagSlot slot in InventoryManager.EquippedItems.Where(s => s.IsFilled))
             {
                 if (ShouldRepair(slot))
                 {
                     Logger.LogInformation(Translations.LOG_REPAIR_LOW_DURABILITY);
-                    _lastRepairAttempt = DateTime.Now;
+
 
                     if (CanSelfRepair(slot))
                     {
                         await DoSelfRepair();
-
-                        return HANDLED_EXECUTION;
                     }
                     else if (CanNpcMenderRepair())
                     {
                         await DoNpcMenderRepair();
-
-                        return HANDLED_EXECUTION;
-                    }
-                    else
-                    {
-                        Logger.LogInformation(Translations.LOG_REPAIR_FAILED);
-                        return HANDLED_EXECUTION;
                     }
                 }
             }
 
-            return PASS_EXECUTION;
-        }
+            Stopwatch.Restart();
 
-        /// <summary>
-        /// Checks if enough time has passed since last repair.
-        /// </summary>
-        /// <returns><see langword="true"/> if repairs are off cooldown.</returns>
-        private bool ReadyToRepair()
-        {
-            return (DateTime.Now - _lastRepairAttempt) > _repairCooldown;
+            return PASS_EXECUTION;
         }
 
         /// <summary>

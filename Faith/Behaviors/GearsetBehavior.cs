@@ -17,22 +17,15 @@ namespace Faith.Behaviors
     public class GearsetBehavior : AbstractBehavior
     {
         /// <summary>
-        /// Timestamp of last Equip Recommended attempt.
-        /// </summary>
-        private DateTime _lastEquipAttempt = DateTime.MinValue;
-
-        /// <summary>
-        /// How often the Equip Recommended can be run.
-        /// </summary>
-        private TimeSpan _equipCooldown = TimeSpan.FromMinutes(15);
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="GearsetBehavior"/> class.
         /// </summary>
         public GearsetBehavior(
             ILogger<GearsetBehavior> logger,
             IOptionsMonitor<FaithOptions> faithOptionsMonitor
-        ) : base(logger, faithOptionsMonitor) { }
+        ) : base(logger, faithOptionsMonitor)
+        {
+            Cooldown = TimeSpan.FromMinutes(10);
+        }
 
         /// <inheritdoc/>
         public override async Task<bool> Run()
@@ -40,6 +33,7 @@ namespace Faith.Behaviors
             if (ShouldTryEquip())
             {
                 await EquipRecommendedGear();
+                Stopwatch.Restart();
 
                 return HANDLED_EXECUTION;
             }
@@ -52,7 +46,7 @@ namespace Faith.Behaviors
         /// </summary>
         private bool ShouldTryEquip()
         {
-            return !CurrentInstance.IsInInstance && (DateTime.Now - _lastEquipAttempt) > _equipCooldown;
+            return !CurrentInstance.IsInInstance && IsBehaviorReady();
         }
 
         /// <summary>
@@ -67,7 +61,6 @@ namespace Faith.Behaviors
             }
 
             RecommendEquip.Instance.Confirm();
-            _lastEquipAttempt = DateTime.Now;
             Logger.LogInformation(Translations.LOG_GEARSET_EQUIPPED_RECOMMENDED);
         }
     }

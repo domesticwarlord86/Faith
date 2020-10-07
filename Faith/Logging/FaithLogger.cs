@@ -17,7 +17,6 @@ namespace Faith.Logging
         private readonly IOptionsMonitor<LoggerFilterOptions> _loggingOptionsMonitor;
 
         private FaithOptions FaithOptions => _faithOptionsMonitor.CurrentValue;
-        private LoggerFilterOptions LoggerOptions => _loggingOptionsMonitor.CurrentValue;
 
         /// <summary>
         /// Full name of type writing to log (e.g., "Faith.Behaviors.MainBehavior").

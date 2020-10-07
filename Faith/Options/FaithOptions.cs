@@ -1,4 +1,5 @@
-﻿using System.Windows.Media;
+﻿using ff14bot.Managers;
+using System.Windows.Media;
 
 namespace Faith.Options
 {
@@ -23,5 +24,25 @@ namespace Faith.Options
         /// Lowest percent durability allowed before attempting to repair gearset.
         /// </summary>
         public float RepairDurabilityThreshold { get; set; } = 10.0f;
+
+        /// <summary>
+        /// Food <see cref="Item"/> ID to maintain buff with during dungeons.
+        /// </summary>
+        public uint FoodId { get; internal set; }
+
+        /// <summary>
+        /// Medicine <see cref="Item"/> ID to maintain buff with during dungeons.
+        /// </summary>
+        public uint MedicineId { get; internal set; }
+
+        /// <summary>
+        /// Squadron Manual <see cref="Item"/> ID to maintain buff with during dungeons.
+        /// </summary>
+        public uint SquadronManualId { get; internal set; }
+
+        /// <summary>
+        /// Company Action ID to maintain buff with during dungeons.
+        /// </summary>
+        public uint CompanyActionId { get; internal set; }
     }
 }

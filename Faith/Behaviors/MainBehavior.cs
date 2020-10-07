@@ -58,10 +58,10 @@ namespace Faith.Behaviors
                 // Non-combat behaviors once out of combat
                 gearsetBehavior,
                 repairBehavior,
-                debugBehavior,  // TODO: Remove debug behavior
                 vendorBehavior,
                 desynthBehavior,
                 longTermBuffsBehavior,
+                debugBehavior,  // TODO: Remove debug behavior
 
                 // Dungeon logic
                 trustQueueBehavior,
@@ -77,21 +77,24 @@ namespace Faith.Behaviors
             // Try executing each behavior in order, most important first
             foreach (AbstractBehavior behavior in _behaviors)
             {
-                Logger.LogTrace(Translations.LOG_BEHAVIOR_ENTERED, behavior.Name);
-                bool handled = await behavior.Run();
-
-                StatusBar.Clear();  // Clean up residual status messages
-
-                if (handled)
+                if (behavior.IsEnabled)
                 {
-                    // Behavior handled the current situation; restart execution from top of behavior list
-                    Logger.LogTrace(Translations.LOG_BEHAVIOR_EXITED_HANDLED, behavior.Name);
-                    return HANDLED_EXECUTION;
-                }
-                else
-                {
-                    // Behavior didn't mark this situation as handled; execute next behavior
-                    Logger.LogTrace(Translations.LOG_BEHAVIOR_EXITED_UNHANDLED, behavior.Name);
+                    Logger.LogTrace(Translations.LOG_BEHAVIOR_ENTERED, behavior.Name);
+                    bool handled = await behavior.Run();
+
+                    StatusBar.Clear();  // Clean up residual status messages
+
+                    if (handled)
+                    {
+                        // Behavior handled the current situation; restart execution from top of behavior list
+                        Logger.LogTrace(Translations.LOG_BEHAVIOR_EXITED_HANDLED, behavior.Name);
+                        return HANDLED_EXECUTION;
+                    }
+                    else
+                    {
+                        // Behavior didn't mark this situation as handled; execute next behavior
+                        Logger.LogTrace(Translations.LOG_BEHAVIOR_EXITED_UNHANDLED, behavior.Name);
+                    }
                 }
             }
 
