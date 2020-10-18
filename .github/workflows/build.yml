@@ -68,8 +68,9 @@ jobs:
         BUILD_VERSION: "${{ steps.version.outputs.tag }}"
       shell: "powershell"
       run: |
+        Tree /F .\Faith\bin | Write-Output
         $COMMIT_HASH = $Env:GITHUB_SHA.Substring(0, 7)
-        7z a Faith-${Env:BUILD_VERSION}-${COMMIT_HASH}.zip README.md VERSION.md .\Faith\bin\Release\* -xr!*.pdb -xr!*.tmp -mx=7
+        7z a Faith-${Env:BUILD_VERSION}-${COMMIT_HASH}.zip .\Faith\bin\x64\Release\* -xr!'*.pdb' -xr!'*.tmp' -mx=7
     
     - name: "Publish to GitHub Releases"
       uses: "marvinpinto/action-automatic-releases@latest"

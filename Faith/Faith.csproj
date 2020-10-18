@@ -51,6 +51,7 @@
     </Reference>
     <Reference Include="GreyMagic, Version=1.0.41.0, Culture=neutral, PublicKeyToken=260525fa2b0e778a, processorArchitecture=AMD64">
       <HintPath>..\packages\RB.Assemblies.1.0.392\lib\net461\GreyMagic.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="LlamaLibrary">
       <HintPath>includes\LlamaLibrary.dll</HintPath>
@@ -111,6 +112,7 @@
     </Reference>
     <Reference Include="RebornBuddy, Version=1.0.392.0, Culture=neutral, PublicKeyToken=48d7174f8a943034, processorArchitecture=AMD64">
       <HintPath>..\packages\RB.Assemblies.1.0.392\lib\net461\RebornBuddy.exe</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -235,20 +237,30 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="AL1073Workaround.targets" />
-  <PropertyGroup>
-    <PostBuildEvent>IF DEFINED %25FAITH_PATH%25 (
-    ECHO FAITH_PATH=%25FAITH_PATH%25
-    IF EXIST %25FAITH_PATH%25 (
-        ECHO Copying DLLs to BotBase directory...
-        XCOPY /Y /F "$(TargetDir)" "%25FAITH_PATH%25\"
-    )
-)</PostBuildEvent>
-  </PropertyGroup>
-  <Target Name="CopyFiles" AfterTargets="AfterBuild">
+  <Target Name="CopyMarkdownFiles" AfterTargets="AfterBuild">
+    <!-- Copy selected solution items to project build output directory -->
     <CreateItem Include="$(SolutionDir)\*.md">
       <Output TaskParameter="Include" ItemName="MarkdownFiles" />
     </CreateItem>
     <Copy SourceFiles="@(MarkdownFiles)" DestinationFiles="@(MarkdownFiles->'$(OutDir)\%(RecursiveDir)%(Filename)%(Extension)')" />
+  </Target>
+  <Target Name="DeployBotBase" AfterTargets="CopyMarkdownFiles" Condition="'$(FAITH_PATH)' != ''">
+    <!-- For development convenience, auto-copy build to BotBases folder if env var set -->
+    <Error Condition="!Exists('$(FAITH_PATH)')" Text="FAITH_PATH set but directory doesn't exist!  FAITH_PATH='$(FAITH_PATH)'" />
+    <CreateItem Include="$(TargetDir)\*.md">
+      <Output TaskParameter="Include" ItemName="MarkdownFiles" />
+    </CreateItem>
+    <CreateItem Include="$(TargetDir)\*.dll*">
+      <Output TaskParameter="Include" ItemName="Assemblies" />
+    </CreateItem>
+    <CreateItem Include="$(TargetDir)\*.cs">
+      <!-- RebornBuddy requires at least one uncompiled file (e.g., Loader.cs) -->
+      <Output TaskParameter="Include" ItemName="UncompiledCode" />
+    </CreateItem>
+    <Message Importance="High" Text="Copying build output to FAITH_PATH=$(FAITH_PATH)" />
+    <Copy SourceFiles="@(MarkdownFiles)" DestinationFiles="@(MarkdownFiles->'$(FAITH_PATH)\%(RecursiveDir)%(Filename)%(Extension)')" />
+    <Copy SourceFiles="@(Assemblies)" DestinationFiles="@(Assemblies->'$(FAITH_PATH)\%(RecursiveDir)%(Filename)%(Extension)')" />
+    <Copy SourceFiles="@(UncompiledCode)" DestinationFiles="@(UncompiledCode->'$(FAITH_PATH)\%(RecursiveDir)%(Filename)%(Extension)')" />
   </Target>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
