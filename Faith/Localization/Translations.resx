@@ -186,6 +186,24 @@
     <value>Failed to load localization "{cultureCode}": resource file not found.</value>
     <comment>This "placeholder" is human-readable since it involves localization failing entirely.</comment>
   </data>
+  <data name="LOG_NAVIGATION_NEW_WAYPOINT" xml:space="preserve">
+    <value>LOG_NAVIGATION_NEW_WAYPOINT</value>
+    <comment>Args: {zone}, {subzone}, {pos}</comment>
+  </data>
+  <data name="LOG_NAVIGATION_NO_WAYPOINT" xml:space="preserve">
+    <value>LOG_NAVIGATION_NO_WAYPOINT</value>
+  </data>
+  <data name="LOG_NAVIGATION_REACHED_WAYPOINT" xml:space="preserve">
+    <value>LOG_NAVIGATION_REACHED_WAYPOINT</value>
+    <comment>Args: {Description}</comment>
+  </data>
+  <data name="LOG_QUEUE_ACCEPTING" xml:space="preserve">
+    <value>LOG_QUEUE_ACCEPTING</value>
+  </data>
+  <data name="LOG_QUEUE_REGISTERING" xml:space="preserve">
+    <value>LOG_QUEUE_REGISTERING</value>
+    <comment>Args: {dutyInfo}</comment>
+  </data>
   <data name="LOG_REPAIR_FAILED" xml:space="preserve">
     <value>LOG_REPAIR_FAILED</value>
   </data>
@@ -236,5 +254,8 @@
   </data>
   <data name="STATUS_LOADING_WAIT" xml:space="preserve">
     <value>STATUS_LOADING_WAIT</value>
+  </data>
+  <data name="WAYPOINT" xml:space="preserve">
+    <value>POI_WAYPOINT</value>
   </data>
 </root>

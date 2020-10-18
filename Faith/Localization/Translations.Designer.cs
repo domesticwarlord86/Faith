@@ -241,6 +241,51 @@ namespace Faith.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to LOG_NAVIGATION_NEW_WAYPOINT.
+        /// </summary>
+        public static string LOG_NAVIGATION_NEW_WAYPOINT {
+            get {
+                return ResourceManager.GetString("LOG_NAVIGATION_NEW_WAYPOINT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LOG_NAVIGATION_NO_WAYPOINT.
+        /// </summary>
+        public static string LOG_NAVIGATION_NO_WAYPOINT {
+            get {
+                return ResourceManager.GetString("LOG_NAVIGATION_NO_WAYPOINT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LOG_NAVIGATION_REACHED_WAYPOINT.
+        /// </summary>
+        public static string LOG_NAVIGATION_REACHED_WAYPOINT {
+            get {
+                return ResourceManager.GetString("LOG_NAVIGATION_REACHED_WAYPOINT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LOG_QUEUE_ACCEPTING.
+        /// </summary>
+        public static string LOG_QUEUE_ACCEPTING {
+            get {
+                return ResourceManager.GetString("LOG_QUEUE_ACCEPTING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LOG_QUEUE_REGISTERING.
+        /// </summary>
+        public static string LOG_QUEUE_REGISTERING {
+            get {
+                return ResourceManager.GetString("LOG_QUEUE_REGISTERING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to LOG_REPAIR_FAILED.
         /// </summary>
         public static string LOG_REPAIR_FAILED {
@@ -381,6 +426,15 @@ namespace Faith.Localization {
         public static string STATUS_LOADING_WAIT {
             get {
                 return ResourceManager.GetString("STATUS_LOADING_WAIT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to POI_WAYPOINT.
+        /// </summary>
+        public static string WAYPOINT {
+            get {
+                return ResourceManager.GetString("WAYPOINT", resourceCulture);
             }
         }
     }
