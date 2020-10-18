@@ -129,13 +129,10 @@ namespace Faith.Behaviors
                     return HANDLED_EXECUTION;
                 }
 
-                if (await Combat())
-                {
-                    return HANDLED_EXECUTION;
-                }
-            }
+                await Combat();
 
-            return PASS_EXECUTION;
+                return HANDLED_EXECUTION;
+            }
         }
 
         private async Task<bool> Rest()
