@@ -1,4 +1,5 @@
 ﻿using Faith.Factories;
+using Faith.Helpers;
 using Faith.Localization;
 using Faith.Logging;
 using Faith.Windows;
@@ -86,6 +87,7 @@ namespace Faith.BotBase
         /// <inheritdoc/>
         public void OnStop()
         {
+            StatusBar.Clear();
             Logger.LogInformation(Translations.LOG_BOTBASE_STOPPED);
             Root = null;
         }
