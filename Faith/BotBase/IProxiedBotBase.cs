@@ -5,7 +5,7 @@ namespace Faith.BotBase
     /// <summary>
     /// <see cref="ff14bot.AClasses.BotBase"/> that receives proxied method calls from a loader.
     /// </summary>
-    interface IProxiedBotBase
+    internal interface IProxiedBotBase
     {
         /// <summary>
         /// Gets the start of the BotBase's behavior tree.

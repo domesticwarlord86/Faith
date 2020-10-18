@@ -45,7 +45,7 @@ namespace Faith.Behaviors
                 StatusBar.Text = Translations.STATUS_CUTSCENE_WAIT;
                 Logger.LogInformation(Translations.STATUS_CUTSCENE_WAIT);
 
-                var cutscene = AgentCutScene.Instance;
+                AgentCutScene cutscene = AgentCutScene.Instance;
                 if (cutscene != null && cutscene.CanSkip)
                 {
                     cutscene.PromptSkip();

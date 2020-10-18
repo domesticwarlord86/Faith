@@ -64,23 +64,32 @@ namespace Faith
         /// <summary>
         /// <inheritdoc/>
         /// </summary>
-        public override void OnButtonPress() => _onButtonPress?.Invoke();
+        public override void OnButtonPress()
+        {
+            _onButtonPress?.Invoke();
+        }
 
         /// <summary>
         /// <inheritdoc/>
         /// </summary>
-        public override void Start() => _start?.Invoke();
+        public override void Start()
+        {
+            _start?.Invoke();
+        }
 
         /// <summary>
         /// <inheritdoc/>
         /// </summary>
-        public override void Stop() => _stop?.Invoke();
+        public override void Stop()
+        {
+            _stop?.Invoke();
+        }
 
         private void Load(Dispatcher dispatcher)
         {
             RedirectAssembly();
 
-            var assembly = LoadAssembly(_projectAssembly);
+            Assembly assembly = LoadAssembly(_projectAssembly);
             if (assembly == null) { return; }
 
             Type baseType;
@@ -101,7 +110,7 @@ namespace Faith
                     return;
                 }
 
-                var type = product.GetType();
+                Type type = product.GetType();
                 _root = (Func<Composite>)type.GetProperty("Root")?.GetValue(product);
                 _start = (Action)type.GetProperty("OnStart")?.GetValue(product);
                 _stop = (Action)type.GetProperty("OnStop")?.GetValue(product);
@@ -115,8 +124,8 @@ namespace Faith
         {
             Assembly Handler(object sender, ResolveEventArgs args)
             {
-                var name = Assembly.GetEntryAssembly()?.GetName().Name;
-                var requestedAssembly = new AssemblyName(args.Name);
+                string name = Assembly.GetEntryAssembly()?.GetName().Name;
+                AssemblyName requestedAssembly = new AssemblyName(args.Name);
                 return requestedAssembly.Name != name ? null : Assembly.GetEntryAssembly();
             }
 
@@ -124,7 +133,7 @@ namespace Faith
 
             Assembly GreyMagicHandler(object sender, ResolveEventArgs args)
             {
-                var requestedAssembly = new AssemblyName(args.Name);
+                AssemblyName requestedAssembly = new AssemblyName(args.Name);
                 return requestedAssembly.Name != "GreyMagic" ? null : Assembly.LoadFrom(_greyMagicAssembly);
             }
 

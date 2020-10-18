@@ -95,7 +95,7 @@ namespace Faith.Behaviors
 
             if (aura.TimespanLeft > _minItemBuffDuration) { return false; }
 
-            var slot = InventoryManager.FilledSlots.FirstOrDefault(s => s.IsFilled && s.TrueItemId == item.Id);
+            BagSlot slot = InventoryManager.FilledSlots.FirstOrDefault(s => s.IsFilled && s.TrueItemId == item.Id);
 
             if (slot == null || !slot.CanUse()) { return false; }
 
@@ -110,6 +110,7 @@ namespace Faith.Behaviors
         /// <returns><see langword="true"/> if Company Action was used.</returns>
         private bool TryRefreshCompanyActionBuff()
         {
+            // TODO: Add FC buff support
             return false;
         }
     }

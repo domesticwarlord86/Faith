@@ -25,7 +25,7 @@ namespace Faith.Factories
         /// </summary>
         public BotBaseWindow Create()
         {
-            return _services.GetService<BotBaseWindow>();
+            return _services.GetRequiredService<BotBaseWindow>();
         }
     }
 }

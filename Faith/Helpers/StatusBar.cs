@@ -12,8 +12,8 @@ namespace Faith.Helpers
         /// </summary>
         public static string Text
         {
-            get { return TreeRoot.StatusText; }
-            set { TreeRoot.StatusText = value; }
+            get => TreeRoot.StatusText;
+            set => TreeRoot.StatusText = value;
         }
 
         /// <summary>

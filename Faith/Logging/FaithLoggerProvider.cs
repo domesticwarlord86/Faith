@@ -5,7 +5,7 @@ using Microsoft.Extensions.Options;
 namespace Faith.Logging
 {
     [ProviderAlias("Faith")]
-    class FaithLoggerProvider : ILoggerProvider
+    internal class FaithLoggerProvider : ILoggerProvider
     {
         private readonly IOptionsMonitor<FaithOptions> _faithOptionsMonitor;
         private readonly IOptionsMonitor<LoggerFilterOptions> _loggingOptionsMonitor;

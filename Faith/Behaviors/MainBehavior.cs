@@ -61,13 +61,13 @@ namespace Faith.Behaviors
                 vendorBehavior,
                 desynthBehavior,
                 longTermBuffsBehavior,
-                debugBehavior,  // TODO: Remove debug behavior
 
                 // Dungeon logic
                 trustQueueBehavior,
                 lootingBehavior,
                 dungeonNavigationBehavior,
                 dungeonExitBehavior,
+                debugBehavior,  // TODO: Remove debug behavior
             };
         }
 

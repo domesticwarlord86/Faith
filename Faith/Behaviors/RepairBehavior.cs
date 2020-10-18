@@ -115,7 +115,7 @@ namespace Faith.Behaviors
 
             if (Logger.IsEnabled(LogLevel.Trace))
             {
-                var repairMaterial = DataManager.GetItem(strongestMaterialId);
+                Item repairMaterial = DataManager.GetItem(strongestMaterialId);
                 Logger.LogTrace(Translations.LOG_REPAIR_MATERIAL_COST, damagedItemCount, repairMaterial.CurrentLocaleName, hasEnough);
             }
 
@@ -131,7 +131,7 @@ namespace Faith.Behaviors
 
             if (!HaveRepairMaterials(InventoryManager.EquippedItems.Where(s => s.IsFilled)))
             {
-                // Buy from NPC, or fail if unable (can't travel, dungeon, low gil, etc)
+                // TODO: Buy dark matter from NPC, or fail if unable (can't travel, dungeon, low gil, etc)
             }
 
             if (!Repair.IsOpen)

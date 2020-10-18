@@ -25,7 +25,7 @@ namespace Faith.Factories
         /// </summary>
         public MainBehavior Create()
         {
-            return _services.GetService<MainBehavior>();
+            return _services.GetRequiredService<MainBehavior>();
         }
     }
 }

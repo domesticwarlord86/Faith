@@ -21,6 +21,7 @@ namespace Faith.Behaviors
         /// <inheritdoc/>
         public override Task<bool> Run()
         {
+            // TODO: Find nearby chests and set as POI + open when close
             return Task.FromResult(false);
         }
     }

@@ -21,6 +21,7 @@ namespace Faith.Behaviors
         /// <inheritdoc/>
         public override Task<bool> Run()
         {
+            // TODO: Desynth eligible items
             return Task.FromResult(false);
         }
     }

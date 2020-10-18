@@ -1,14 +1,17 @@
 ﻿using Faith.Behaviors;
 using Faith.BotBase;
+using Faith.Dungeons;
 using Faith.Factories;
 using Faith.Localization;
 using Faith.Logging;
+using Faith.Navigation;
 using Faith.Options;
 using Faith.Windows;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using TreeSharp;
 using Action = System.Action;
@@ -25,8 +28,6 @@ namespace Faith
         /// </summary>
         private readonly IServiceProvider _services;
 
-        private readonly LocalizationProvider _localizationProvider;
-
         /// <summary>
         /// <see cref="IProxiedBotBase"/> that BotBase method calls are forwarded to.
         /// </summary>
@@ -41,9 +42,9 @@ namespace Faith
             IConfiguration config = BuildConfiguration();
             _services = BuildServiceProvider(config);
 
-            _localizationProvider = _services.GetService<LocalizationProvider>();
-
-            _proxiedBotBase = _services.GetService<IProxiedBotBase>();
+            IServiceScope scope = _services.CreateScope();
+            LocalizationProvider localizationProvider = scope.ServiceProvider.GetRequiredService<LocalizationProvider>();
+            _proxiedBotBase = scope.ServiceProvider.GetRequiredService<IProxiedBotBase>();
         }
 
         /// <inheritdoc/>
@@ -95,7 +96,7 @@ namespace Faith
             services.AddScoped<IProxiedBotBase, FaithBotBase>();
 
             // Behaviors
-            services.AddScoped<MainBehavior>();
+            services.AddTransient<MainBehavior>();
             services.AddScoped<LoadingBehavior>();
             services.AddScoped<DeathBehavior>();
             services.AddScoped<BossMechanicsBehavior>();
@@ -111,6 +112,17 @@ namespace Faith
             services.AddScoped<DungeonExitBehavior>();
             services.AddScoped<DebugBehavior>();
 
+            // Navigation
+            services.AddScoped<HolminsterSwitchRoute>();
+
+            services.AddScoped(svcs => new DungeonRouteCalculator(
+                svcs.GetService<ILogger<DungeonRouteCalculator>>(),
+                new Dictionary<DungeonId, IRoute>
+                {
+                    { DungeonId.HolminsterSwitch, svcs.GetService<HolminsterSwitchRoute>() },
+                }
+            ));
+
             // Windows
             services.AddTransient<BotBaseWindow>();
             services.AddTransient<BotBaseWindowViewModel>();
@@ -122,7 +134,7 @@ namespace Faith
             // Localization
             services.AddSingleton<LocalizationProvider>();
 
-            return services.BuildServiceProvider();
+            return services.BuildServiceProvider(validateScopes: true);
         }
     }
 }

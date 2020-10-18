@@ -60,7 +60,7 @@ namespace Faith.Helpers
         /// Meanings of individual bits in InstanceFlags.
         /// </summary>
         [Flags]
-        enum InstanceFlags : byte
+        private enum InstanceFlags : byte
         {
             LOADED = 0b0000_0100,
             BARRIER_DOWN = 0b0000_1000,
@@ -71,7 +71,7 @@ namespace Faith.Helpers
         /// Meanings of individual bits in InstanceSubFlags.
         /// </summary>
         [Flags]
-        enum InstanceSubFlags : byte
+        private enum InstanceSubFlags : byte
         {
             DUTY_COMPLETE = 0b0001_0000,
         }
